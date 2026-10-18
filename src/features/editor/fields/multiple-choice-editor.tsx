@@ -51,6 +51,14 @@ function MultipleChoiceEditor(props: MultipleChoiceEditorProps) {
     },
   });
 
+  const moveQuestionApi = api.question.moveQuestion.useMutation({
+    onSuccess: async () => {
+      await utils.question.getAll.invalidate({
+        form_id: props.formId,
+      });
+    },
+  });
+
   const addOptionApi = api.question.addOption.useMutation({
     onSuccess: async () => {
       await utils.question.getAll.invalidate({
@@ -75,7 +83,22 @@ function MultipleChoiceEditor(props: MultipleChoiceEditorProps) {
     },
   });
 
-  const isPending = updateApi.isPending || deleteApi.isPending;
+  const moveOptionApi = api.question.moveOption.useMutation({
+    onSuccess: async () => {
+      await utils.question.getAll.invalidate({
+        form_id: props.formId,
+      });
+    },
+  });
+
+  const isPending =
+    updateApi.isPending || deleteApi.isPending || moveQuestionApi.isPending;
+
+  // `getAll` comes back ordered by `order`, so the cached list is enough to tell whether a
+  // move would be a no-op and the menu item can be disabled instead of erroring on the server.
+  const questions = utils.question.getAll.getData({ form_id: props.formId });
+  const isFirstQuestion = questions?.at(0)?.id === props.id;
+  const isLastQuestion = questions?.at(-1)?.id === props.id;
 
   return (
     <Card className="w-full">
@@ -147,7 +170,7 @@ function MultipleChoiceEditor(props: MultipleChoiceEditorProps) {
           />
         )}
         {/* Options */}
-        <div className="py-3 grid gap-3">
+        <div className="grid gap-3 py-3">
           {props.options.map((value) => (
             <div key={value.id} className="flex items-center gap-3">
               <CircleIcon className="text-muted-foreground size-5" />
@@ -165,6 +188,42 @@ function MultipleChoiceEditor(props: MultipleChoiceEditorProps) {
                   });
                 }}
               />
+              <Button
+                variant="ghost"
+                size="icon"
+                disabled={
+                  isPending ||
+                  deleteOptionApi.isPending ||
+                  moveOptionApi.isPending ||
+                  props.options?.at(0)?.id === value.id
+                }
+                onClick={async () => {
+                  await moveOptionApi.mutateAsync({
+                    id: value.id,
+                    direction: "up",
+                  });
+                }}
+              >
+                <ChevronUpIcon />
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                disabled={
+                  isPending ||
+                  deleteOptionApi.isPending ||
+                  moveOptionApi.isPending ||
+                  props.options?.at(-1)?.id === value.id
+                }
+                onClick={async () => {
+                  await moveOptionApi.mutateAsync({
+                    id: value.id,
+                    direction: "down",
+                  });
+                }}
+              >
+                <ChevronDownIcon />
+              </Button>
               {props.options.length > 1 && (
                 <Button
                   variant="ghost"
@@ -251,13 +310,12 @@ function MultipleChoiceEditor(props: MultipleChoiceEditorProps) {
               Add description
             </DropdownMenuItem>
             <DropdownMenuItem
-              disabled={isPending}
+              disabled={isPending || isFirstQuestion}
               onClick={async () => {
-                await updateApi.mutateAsync({
+                await moveQuestionApi.mutateAsync({
                   form_id: props.formId,
                   question_id: props.id,
-                  // TODO: Update with new order
-                  order: props.order,
+                  direction: "up",
                 });
               }}
             >
@@ -265,13 +323,12 @@ function MultipleChoiceEditor(props: MultipleChoiceEditorProps) {
               Move up
             </DropdownMenuItem>
             <DropdownMenuItem
-              disabled={isPending}
+              disabled={isPending || isLastQuestion}
               onClick={async () => {
-                await updateApi.mutateAsync({
+                await moveQuestionApi.mutateAsync({
                   form_id: props.formId,
                   question_id: props.id,
-                  // TODO: Update with new order
-                  order: props.order,
+                  direction: "down",
                 });
               }}
             >
