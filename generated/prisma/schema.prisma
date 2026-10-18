@@ -15,9 +15,27 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Post {
-  id        String   @id @default(cuid())
-  name      String
+model Form {
+  id          String    @id @default(nanoid())
+  name        String    @default("Untitled form")
+  description String?
+  stared      Boolean   @default(false)
+  published   Boolean   @default(false)
+  publishedAt DateTime?
+
+  // Form settings
+  requireAuth          Boolean @default(false)
+  sendResponseEmail    Boolean @default(false)
+  allowResponseEditing Boolean @default(false)
+  limitOneResponse     Boolean @default(false)
+  allQuestionsRequired Boolean @default(false)
+
+  // Form presentation
+  showProgressBar             Boolean @default(false)
+  shuffleQuestionOrder        Boolean @default(false)
+  confirmationMessage         String  @default("Your response has been recorded")
+  showLinkFormAnotherResponse Boolean @default(true)
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -37,7 +55,7 @@ model User {
   updatedAt     DateTime  @default(now()) @updatedAt
   sessions      Session[]
   accounts      Account[]
-  posts         Post[]
+  forms         Form[]
 
   @@unique([email])
   @@map("user")

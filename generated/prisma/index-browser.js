@@ -118,9 +118,22 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.PostScalarFieldEnum = {
+exports.Prisma.FormScalarFieldEnum = {
   id: 'id',
   name: 'name',
+  description: 'description',
+  stared: 'stared',
+  published: 'published',
+  publishedAt: 'publishedAt',
+  requireAuth: 'requireAuth',
+  sendResponseEmail: 'sendResponseEmail',
+  allowResponseEditing: 'allowResponseEditing',
+  limitOneResponse: 'limitOneResponse',
+  allQuestionsRequired: 'allQuestionsRequired',
+  showProgressBar: 'showProgressBar',
+  shuffleQuestionOrder: 'shuffleQuestionOrder',
+  confirmationMessage: 'confirmationMessage',
+  showLinkFormAnotherResponse: 'showLinkFormAnotherResponse',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   createdById: 'createdById'
@@ -184,7 +197,7 @@ exports.Prisma.NullsOrder = {
 
 
 exports.Prisma.ModelName = {
-  Post: 'Post',
+  Form: 'Form',
   User: 'User',
   Session: 'Session',
   Account: 'Account',

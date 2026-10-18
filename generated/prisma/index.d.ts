@@ -14,10 +14,10 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model Post
+ * Model Form
  * 
  */
-export type Post = $Result.DefaultSelection<Prisma.$PostPayload>
+export type Form = $Result.DefaultSelection<Prisma.$FormPayload>
 /**
  * Model User
  * 
@@ -46,8 +46,8 @@ export type Verification = $Result.DefaultSelection<Prisma.$VerificationPayload>
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Posts
- * const posts = await prisma.post.findMany()
+ * // Fetch zero or more Forms
+ * const forms = await prisma.form.findMany()
  * ```
  *
  *
@@ -67,8 +67,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Posts
-   * const posts = await prisma.post.findMany()
+   * // Fetch zero or more Forms
+   * const forms = await prisma.form.findMany()
    * ```
    *
    *
@@ -158,14 +158,14 @@ export class PrismaClient<
   }>>
 
       /**
-   * `prisma.post`: Exposes CRUD operations for the **Post** model.
+   * `prisma.form`: Exposes CRUD operations for the **Form** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Posts
-    * const posts = await prisma.post.findMany()
+    * // Fetch zero or more Forms
+    * const forms = await prisma.form.findMany()
     * ```
     */
-  get post(): Prisma.PostDelegate<ExtArgs, ClientOptions>;
+  get form(): Prisma.FormDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.user`: Exposes CRUD operations for the **User** model.
@@ -647,7 +647,7 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    Post: 'Post',
+    Form: 'Form',
     User: 'User',
     Session: 'Session',
     Account: 'Account',
@@ -670,81 +670,81 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "post" | "user" | "session" | "account" | "verification"
+      modelProps: "form" | "user" | "session" | "account" | "verification"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
-      Post: {
-        payload: Prisma.$PostPayload<ExtArgs>
-        fields: Prisma.PostFieldRefs
+      Form: {
+        payload: Prisma.$FormPayload<ExtArgs>
+        fields: Prisma.FormFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.PostFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload> | null
+            args: Prisma.FormFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FormPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.PostFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>
+            args: Prisma.FormFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FormPayload>
           }
           findFirst: {
-            args: Prisma.PostFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload> | null
+            args: Prisma.FormFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FormPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.PostFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>
+            args: Prisma.FormFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FormPayload>
           }
           findMany: {
-            args: Prisma.PostFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>[]
+            args: Prisma.FormFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FormPayload>[]
           }
           create: {
-            args: Prisma.PostCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>
+            args: Prisma.FormCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FormPayload>
           }
           createMany: {
-            args: Prisma.PostCreateManyArgs<ExtArgs>
+            args: Prisma.FormCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.PostCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>[]
+            args: Prisma.FormCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FormPayload>[]
           }
           delete: {
-            args: Prisma.PostDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>
+            args: Prisma.FormDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FormPayload>
           }
           update: {
-            args: Prisma.PostUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>
+            args: Prisma.FormUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FormPayload>
           }
           deleteMany: {
-            args: Prisma.PostDeleteManyArgs<ExtArgs>
+            args: Prisma.FormDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.PostUpdateManyArgs<ExtArgs>
+            args: Prisma.FormUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.PostUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>[]
+            args: Prisma.FormUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FormPayload>[]
           }
           upsert: {
-            args: Prisma.PostUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>
+            args: Prisma.FormUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FormPayload>
           }
           aggregate: {
-            args: Prisma.PostAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregatePost>
+            args: Prisma.FormAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateForm>
           }
           groupBy: {
-            args: Prisma.PostGroupByArgs<ExtArgs>
-            result: $Utils.Optional<PostGroupByOutputType>[]
+            args: Prisma.FormGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FormGroupByOutputType>[]
           }
           count: {
-            args: Prisma.PostCountArgs<ExtArgs>
-            result: $Utils.Optional<PostCountAggregateOutputType> | number
+            args: Prisma.FormCountArgs<ExtArgs>
+            result: $Utils.Optional<FormCountAggregateOutputType> | number
           }
         }
       }
@@ -1140,7 +1140,7 @@ export namespace Prisma {
     omit?: Prisma.GlobalOmitConfig
   }
   export type GlobalOmitConfig = {
-    post?: PostOmit
+    form?: FormOmit
     user?: UserOmit
     session?: SessionOmit
     account?: AccountOmit
@@ -1227,13 +1227,13 @@ export namespace Prisma {
   export type UserCountOutputType = {
     sessions: number
     accounts: number
-    posts: number
+    forms: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sessions?: boolean | UserCountOutputTypeCountSessionsArgs
     accounts?: boolean | UserCountOutputTypeCountAccountsArgs
-    posts?: boolean | UserCountOutputTypeCountPostsArgs
+    forms?: boolean | UserCountOutputTypeCountFormsArgs
   }
 
   // Custom InputTypes
@@ -1264,8 +1264,8 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountPostsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PostWhereInput
+  export type UserCountOutputTypeCountFormsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FormWhereInput
   }
 
 
@@ -1274,34 +1274,73 @@ export namespace Prisma {
    */
 
   /**
-   * Model Post
+   * Model Form
    */
 
-  export type AggregatePost = {
-    _count: PostCountAggregateOutputType | null
-    _min: PostMinAggregateOutputType | null
-    _max: PostMaxAggregateOutputType | null
+  export type AggregateForm = {
+    _count: FormCountAggregateOutputType | null
+    _min: FormMinAggregateOutputType | null
+    _max: FormMaxAggregateOutputType | null
   }
 
-  export type PostMinAggregateOutputType = {
+  export type FormMinAggregateOutputType = {
     id: string | null
     name: string | null
+    description: string | null
+    stared: boolean | null
+    published: boolean | null
+    publishedAt: Date | null
+    requireAuth: boolean | null
+    sendResponseEmail: boolean | null
+    allowResponseEditing: boolean | null
+    limitOneResponse: boolean | null
+    allQuestionsRequired: boolean | null
+    showProgressBar: boolean | null
+    shuffleQuestionOrder: boolean | null
+    confirmationMessage: string | null
+    showLinkFormAnotherResponse: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
     createdById: string | null
   }
 
-  export type PostMaxAggregateOutputType = {
+  export type FormMaxAggregateOutputType = {
     id: string | null
     name: string | null
+    description: string | null
+    stared: boolean | null
+    published: boolean | null
+    publishedAt: Date | null
+    requireAuth: boolean | null
+    sendResponseEmail: boolean | null
+    allowResponseEditing: boolean | null
+    limitOneResponse: boolean | null
+    allQuestionsRequired: boolean | null
+    showProgressBar: boolean | null
+    shuffleQuestionOrder: boolean | null
+    confirmationMessage: string | null
+    showLinkFormAnotherResponse: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
     createdById: string | null
   }
 
-  export type PostCountAggregateOutputType = {
+  export type FormCountAggregateOutputType = {
     id: number
     name: number
+    description: number
+    stared: number
+    published: number
+    publishedAt: number
+    requireAuth: number
+    sendResponseEmail: number
+    allowResponseEditing: number
+    limitOneResponse: number
+    allQuestionsRequired: number
+    showProgressBar: number
+    shuffleQuestionOrder: number
+    confirmationMessage: number
+    showLinkFormAnotherResponse: number
     createdAt: number
     updatedAt: number
     createdById: number
@@ -1309,315 +1348,432 @@ export namespace Prisma {
   }
 
 
-  export type PostMinAggregateInputType = {
+  export type FormMinAggregateInputType = {
     id?: true
     name?: true
+    description?: true
+    stared?: true
+    published?: true
+    publishedAt?: true
+    requireAuth?: true
+    sendResponseEmail?: true
+    allowResponseEditing?: true
+    limitOneResponse?: true
+    allQuestionsRequired?: true
+    showProgressBar?: true
+    shuffleQuestionOrder?: true
+    confirmationMessage?: true
+    showLinkFormAnotherResponse?: true
     createdAt?: true
     updatedAt?: true
     createdById?: true
   }
 
-  export type PostMaxAggregateInputType = {
+  export type FormMaxAggregateInputType = {
     id?: true
     name?: true
+    description?: true
+    stared?: true
+    published?: true
+    publishedAt?: true
+    requireAuth?: true
+    sendResponseEmail?: true
+    allowResponseEditing?: true
+    limitOneResponse?: true
+    allQuestionsRequired?: true
+    showProgressBar?: true
+    shuffleQuestionOrder?: true
+    confirmationMessage?: true
+    showLinkFormAnotherResponse?: true
     createdAt?: true
     updatedAt?: true
     createdById?: true
   }
 
-  export type PostCountAggregateInputType = {
+  export type FormCountAggregateInputType = {
     id?: true
     name?: true
+    description?: true
+    stared?: true
+    published?: true
+    publishedAt?: true
+    requireAuth?: true
+    sendResponseEmail?: true
+    allowResponseEditing?: true
+    limitOneResponse?: true
+    allQuestionsRequired?: true
+    showProgressBar?: true
+    shuffleQuestionOrder?: true
+    confirmationMessage?: true
+    showLinkFormAnotherResponse?: true
     createdAt?: true
     updatedAt?: true
     createdById?: true
     _all?: true
   }
 
-  export type PostAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FormAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Post to aggregate.
+     * Filter which Form to aggregate.
      */
-    where?: PostWhereInput
+    where?: FormWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Posts to fetch.
+     * Determine the order of Forms to fetch.
      */
-    orderBy?: PostOrderByWithRelationInput | PostOrderByWithRelationInput[]
+    orderBy?: FormOrderByWithRelationInput | FormOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: PostWhereUniqueInput
+    cursor?: FormWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Posts from the position of the cursor.
+     * Take `±n` Forms from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Posts.
+     * Skip the first `n` Forms.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Posts
+     * Count returned Forms
     **/
-    _count?: true | PostCountAggregateInputType
+    _count?: true | FormCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: PostMinAggregateInputType
+    _min?: FormMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: PostMaxAggregateInputType
+    _max?: FormMaxAggregateInputType
   }
 
-  export type GetPostAggregateType<T extends PostAggregateArgs> = {
-        [P in keyof T & keyof AggregatePost]: P extends '_count' | 'count'
+  export type GetFormAggregateType<T extends FormAggregateArgs> = {
+        [P in keyof T & keyof AggregateForm]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregatePost[P]>
-      : GetScalarType<T[P], AggregatePost[P]>
+        : GetScalarType<T[P], AggregateForm[P]>
+      : GetScalarType<T[P], AggregateForm[P]>
   }
 
 
 
 
-  export type PostGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PostWhereInput
-    orderBy?: PostOrderByWithAggregationInput | PostOrderByWithAggregationInput[]
-    by: PostScalarFieldEnum[] | PostScalarFieldEnum
-    having?: PostScalarWhereWithAggregatesInput
+  export type FormGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FormWhereInput
+    orderBy?: FormOrderByWithAggregationInput | FormOrderByWithAggregationInput[]
+    by: FormScalarFieldEnum[] | FormScalarFieldEnum
+    having?: FormScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: PostCountAggregateInputType | true
-    _min?: PostMinAggregateInputType
-    _max?: PostMaxAggregateInputType
+    _count?: FormCountAggregateInputType | true
+    _min?: FormMinAggregateInputType
+    _max?: FormMaxAggregateInputType
   }
 
-  export type PostGroupByOutputType = {
+  export type FormGroupByOutputType = {
     id: string
     name: string
+    description: string | null
+    stared: boolean
+    published: boolean
+    publishedAt: Date | null
+    requireAuth: boolean
+    sendResponseEmail: boolean
+    allowResponseEditing: boolean
+    limitOneResponse: boolean
+    allQuestionsRequired: boolean
+    showProgressBar: boolean
+    shuffleQuestionOrder: boolean
+    confirmationMessage: string
+    showLinkFormAnotherResponse: boolean
     createdAt: Date
     updatedAt: Date
     createdById: string
-    _count: PostCountAggregateOutputType | null
-    _min: PostMinAggregateOutputType | null
-    _max: PostMaxAggregateOutputType | null
+    _count: FormCountAggregateOutputType | null
+    _min: FormMinAggregateOutputType | null
+    _max: FormMaxAggregateOutputType | null
   }
 
-  type GetPostGroupByPayload<T extends PostGroupByArgs> = Prisma.PrismaPromise<
+  type GetFormGroupByPayload<T extends FormGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<PostGroupByOutputType, T['by']> &
+      PickEnumerable<FormGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof PostGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof FormGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], PostGroupByOutputType[P]>
-            : GetScalarType<T[P], PostGroupByOutputType[P]>
+              : GetScalarType<T[P], FormGroupByOutputType[P]>
+            : GetScalarType<T[P], FormGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type PostSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type FormSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    description?: boolean
+    stared?: boolean
+    published?: boolean
+    publishedAt?: boolean
+    requireAuth?: boolean
+    sendResponseEmail?: boolean
+    allowResponseEditing?: boolean
+    limitOneResponse?: boolean
+    allQuestionsRequired?: boolean
+    showProgressBar?: boolean
+    shuffleQuestionOrder?: boolean
+    confirmationMessage?: boolean
+    showLinkFormAnotherResponse?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     createdById?: boolean
     createdBy?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["post"]>
+  }, ExtArgs["result"]["form"]>
 
-  export type PostSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type FormSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    description?: boolean
+    stared?: boolean
+    published?: boolean
+    publishedAt?: boolean
+    requireAuth?: boolean
+    sendResponseEmail?: boolean
+    allowResponseEditing?: boolean
+    limitOneResponse?: boolean
+    allQuestionsRequired?: boolean
+    showProgressBar?: boolean
+    shuffleQuestionOrder?: boolean
+    confirmationMessage?: boolean
+    showLinkFormAnotherResponse?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     createdById?: boolean
     createdBy?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["post"]>
+  }, ExtArgs["result"]["form"]>
 
-  export type PostSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type FormSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    description?: boolean
+    stared?: boolean
+    published?: boolean
+    publishedAt?: boolean
+    requireAuth?: boolean
+    sendResponseEmail?: boolean
+    allowResponseEditing?: boolean
+    limitOneResponse?: boolean
+    allQuestionsRequired?: boolean
+    showProgressBar?: boolean
+    shuffleQuestionOrder?: boolean
+    confirmationMessage?: boolean
+    showLinkFormAnotherResponse?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     createdById?: boolean
     createdBy?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["post"]>
+  }, ExtArgs["result"]["form"]>
 
-  export type PostSelectScalar = {
+  export type FormSelectScalar = {
     id?: boolean
     name?: boolean
+    description?: boolean
+    stared?: boolean
+    published?: boolean
+    publishedAt?: boolean
+    requireAuth?: boolean
+    sendResponseEmail?: boolean
+    allowResponseEditing?: boolean
+    limitOneResponse?: boolean
+    allQuestionsRequired?: boolean
+    showProgressBar?: boolean
+    shuffleQuestionOrder?: boolean
+    confirmationMessage?: boolean
+    showLinkFormAnotherResponse?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     createdById?: boolean
   }
 
-  export type PostOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "createdAt" | "updatedAt" | "createdById", ExtArgs["result"]["post"]>
-  export type PostInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FormOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "stared" | "published" | "publishedAt" | "requireAuth" | "sendResponseEmail" | "allowResponseEditing" | "limitOneResponse" | "allQuestionsRequired" | "showProgressBar" | "shuffleQuestionOrder" | "confirmationMessage" | "showLinkFormAnotherResponse" | "createdAt" | "updatedAt" | "createdById", ExtArgs["result"]["form"]>
+  export type FormInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     createdBy?: boolean | UserDefaultArgs<ExtArgs>
   }
-  export type PostIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FormIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     createdBy?: boolean | UserDefaultArgs<ExtArgs>
   }
-  export type PostIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FormIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     createdBy?: boolean | UserDefaultArgs<ExtArgs>
   }
 
-  export type $PostPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Post"
+  export type $FormPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Form"
     objects: {
       createdBy: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
+      description: string | null
+      stared: boolean
+      published: boolean
+      publishedAt: Date | null
+      requireAuth: boolean
+      sendResponseEmail: boolean
+      allowResponseEditing: boolean
+      limitOneResponse: boolean
+      allQuestionsRequired: boolean
+      showProgressBar: boolean
+      shuffleQuestionOrder: boolean
+      confirmationMessage: string
+      showLinkFormAnotherResponse: boolean
       createdAt: Date
       updatedAt: Date
       createdById: string
-    }, ExtArgs["result"]["post"]>
+    }, ExtArgs["result"]["form"]>
     composites: {}
   }
 
-  type PostGetPayload<S extends boolean | null | undefined | PostDefaultArgs> = $Result.GetResult<Prisma.$PostPayload, S>
+  type FormGetPayload<S extends boolean | null | undefined | FormDefaultArgs> = $Result.GetResult<Prisma.$FormPayload, S>
 
-  type PostCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<PostFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: PostCountAggregateInputType | true
+  type FormCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<FormFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FormCountAggregateInputType | true
     }
 
-  export interface PostDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Post'], meta: { name: 'Post' } }
+  export interface FormDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Form'], meta: { name: 'Form' } }
     /**
-     * Find zero or one Post that matches the filter.
-     * @param {PostFindUniqueArgs} args - Arguments to find a Post
+     * Find zero or one Form that matches the filter.
+     * @param {FormFindUniqueArgs} args - Arguments to find a Form
      * @example
-     * // Get one Post
-     * const post = await prisma.post.findUnique({
+     * // Get one Form
+     * const form = await prisma.form.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends PostFindUniqueArgs>(args: SelectSubset<T, PostFindUniqueArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends FormFindUniqueArgs>(args: SelectSubset<T, FormFindUniqueArgs<ExtArgs>>): Prisma__FormClient<$Result.GetResult<Prisma.$FormPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Post that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Form that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {PostFindUniqueOrThrowArgs} args - Arguments to find a Post
+     * @param {FormFindUniqueOrThrowArgs} args - Arguments to find a Form
      * @example
-     * // Get one Post
-     * const post = await prisma.post.findUniqueOrThrow({
+     * // Get one Form
+     * const form = await prisma.form.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends PostFindUniqueOrThrowArgs>(args: SelectSubset<T, PostFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends FormFindUniqueOrThrowArgs>(args: SelectSubset<T, FormFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FormClient<$Result.GetResult<Prisma.$FormPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Post that matches the filter.
+     * Find the first Form that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostFindFirstArgs} args - Arguments to find a Post
+     * @param {FormFindFirstArgs} args - Arguments to find a Form
      * @example
-     * // Get one Post
-     * const post = await prisma.post.findFirst({
+     * // Get one Form
+     * const form = await prisma.form.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends PostFindFirstArgs>(args?: SelectSubset<T, PostFindFirstArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends FormFindFirstArgs>(args?: SelectSubset<T, FormFindFirstArgs<ExtArgs>>): Prisma__FormClient<$Result.GetResult<Prisma.$FormPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Post that matches the filter or
+     * Find the first Form that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostFindFirstOrThrowArgs} args - Arguments to find a Post
+     * @param {FormFindFirstOrThrowArgs} args - Arguments to find a Form
      * @example
-     * // Get one Post
-     * const post = await prisma.post.findFirstOrThrow({
+     * // Get one Form
+     * const form = await prisma.form.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends PostFindFirstOrThrowArgs>(args?: SelectSubset<T, PostFindFirstOrThrowArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends FormFindFirstOrThrowArgs>(args?: SelectSubset<T, FormFindFirstOrThrowArgs<ExtArgs>>): Prisma__FormClient<$Result.GetResult<Prisma.$FormPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Posts that matches the filter.
+     * Find zero or more Forms that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {FormFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Posts
-     * const posts = await prisma.post.findMany()
+     * // Get all Forms
+     * const forms = await prisma.form.findMany()
      * 
-     * // Get first 10 Posts
-     * const posts = await prisma.post.findMany({ take: 10 })
+     * // Get first 10 Forms
+     * const forms = await prisma.form.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const postWithIdOnly = await prisma.post.findMany({ select: { id: true } })
+     * const formWithIdOnly = await prisma.form.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends PostFindManyArgs>(args?: SelectSubset<T, PostFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends FormFindManyArgs>(args?: SelectSubset<T, FormFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FormPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Post.
-     * @param {PostCreateArgs} args - Arguments to create a Post.
+     * Create a Form.
+     * @param {FormCreateArgs} args - Arguments to create a Form.
      * @example
-     * // Create one Post
-     * const Post = await prisma.post.create({
+     * // Create one Form
+     * const Form = await prisma.form.create({
      *   data: {
-     *     // ... data to create a Post
+     *     // ... data to create a Form
      *   }
      * })
      * 
      */
-    create<T extends PostCreateArgs>(args: SelectSubset<T, PostCreateArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends FormCreateArgs>(args: SelectSubset<T, FormCreateArgs<ExtArgs>>): Prisma__FormClient<$Result.GetResult<Prisma.$FormPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Posts.
-     * @param {PostCreateManyArgs} args - Arguments to create many Posts.
+     * Create many Forms.
+     * @param {FormCreateManyArgs} args - Arguments to create many Forms.
      * @example
-     * // Create many Posts
-     * const post = await prisma.post.createMany({
+     * // Create many Forms
+     * const form = await prisma.form.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends PostCreateManyArgs>(args?: SelectSubset<T, PostCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends FormCreateManyArgs>(args?: SelectSubset<T, FormCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Posts and returns the data saved in the database.
-     * @param {PostCreateManyAndReturnArgs} args - Arguments to create many Posts.
+     * Create many Forms and returns the data saved in the database.
+     * @param {FormCreateManyAndReturnArgs} args - Arguments to create many Forms.
      * @example
-     * // Create many Posts
-     * const post = await prisma.post.createManyAndReturn({
+     * // Create many Forms
+     * const form = await prisma.form.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Posts and only return the `id`
-     * const postWithIdOnly = await prisma.post.createManyAndReturn({
+     * // Create many Forms and only return the `id`
+     * const formWithIdOnly = await prisma.form.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -1627,28 +1783,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends PostCreateManyAndReturnArgs>(args?: SelectSubset<T, PostCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends FormCreateManyAndReturnArgs>(args?: SelectSubset<T, FormCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FormPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Post.
-     * @param {PostDeleteArgs} args - Arguments to delete one Post.
+     * Delete a Form.
+     * @param {FormDeleteArgs} args - Arguments to delete one Form.
      * @example
-     * // Delete one Post
-     * const Post = await prisma.post.delete({
+     * // Delete one Form
+     * const Form = await prisma.form.delete({
      *   where: {
-     *     // ... filter to delete one Post
+     *     // ... filter to delete one Form
      *   }
      * })
      * 
      */
-    delete<T extends PostDeleteArgs>(args: SelectSubset<T, PostDeleteArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends FormDeleteArgs>(args: SelectSubset<T, FormDeleteArgs<ExtArgs>>): Prisma__FormClient<$Result.GetResult<Prisma.$FormPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Post.
-     * @param {PostUpdateArgs} args - Arguments to update one Post.
+     * Update one Form.
+     * @param {FormUpdateArgs} args - Arguments to update one Form.
      * @example
-     * // Update one Post
-     * const post = await prisma.post.update({
+     * // Update one Form
+     * const form = await prisma.form.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1658,30 +1814,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends PostUpdateArgs>(args: SelectSubset<T, PostUpdateArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends FormUpdateArgs>(args: SelectSubset<T, FormUpdateArgs<ExtArgs>>): Prisma__FormClient<$Result.GetResult<Prisma.$FormPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Posts.
-     * @param {PostDeleteManyArgs} args - Arguments to filter Posts to delete.
+     * Delete zero or more Forms.
+     * @param {FormDeleteManyArgs} args - Arguments to filter Forms to delete.
      * @example
-     * // Delete a few Posts
-     * const { count } = await prisma.post.deleteMany({
+     * // Delete a few Forms
+     * const { count } = await prisma.form.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends PostDeleteManyArgs>(args?: SelectSubset<T, PostDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends FormDeleteManyArgs>(args?: SelectSubset<T, FormDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Posts.
+     * Update zero or more Forms.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {FormUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Posts
-     * const post = await prisma.post.updateMany({
+     * // Update many Forms
+     * const form = await prisma.form.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1691,14 +1847,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends PostUpdateManyArgs>(args: SelectSubset<T, PostUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends FormUpdateManyArgs>(args: SelectSubset<T, FormUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Posts and returns the data updated in the database.
-     * @param {PostUpdateManyAndReturnArgs} args - Arguments to update many Posts.
+     * Update zero or more Forms and returns the data updated in the database.
+     * @param {FormUpdateManyAndReturnArgs} args - Arguments to update many Forms.
      * @example
-     * // Update many Posts
-     * const post = await prisma.post.updateManyAndReturn({
+     * // Update many Forms
+     * const form = await prisma.form.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1707,8 +1863,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Posts and only return the `id`
-     * const postWithIdOnly = await prisma.post.updateManyAndReturn({
+     * // Update zero or more Forms and only return the `id`
+     * const formWithIdOnly = await prisma.form.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -1721,56 +1877,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends PostUpdateManyAndReturnArgs>(args: SelectSubset<T, PostUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends FormUpdateManyAndReturnArgs>(args: SelectSubset<T, FormUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FormPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Post.
-     * @param {PostUpsertArgs} args - Arguments to update or create a Post.
+     * Create or update one Form.
+     * @param {FormUpsertArgs} args - Arguments to update or create a Form.
      * @example
-     * // Update or create a Post
-     * const post = await prisma.post.upsert({
+     * // Update or create a Form
+     * const form = await prisma.form.upsert({
      *   create: {
-     *     // ... data to create a Post
+     *     // ... data to create a Form
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Post we want to update
+     *     // ... the filter for the Form we want to update
      *   }
      * })
      */
-    upsert<T extends PostUpsertArgs>(args: SelectSubset<T, PostUpsertArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends FormUpsertArgs>(args: SelectSubset<T, FormUpsertArgs<ExtArgs>>): Prisma__FormClient<$Result.GetResult<Prisma.$FormPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Posts.
+     * Count the number of Forms.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostCountArgs} args - Arguments to filter Posts to count.
+     * @param {FormCountArgs} args - Arguments to filter Forms to count.
      * @example
-     * // Count the number of Posts
-     * const count = await prisma.post.count({
+     * // Count the number of Forms
+     * const count = await prisma.form.count({
      *   where: {
-     *     // ... the filter for the Posts we want to count
+     *     // ... the filter for the Forms we want to count
      *   }
      * })
     **/
-    count<T extends PostCountArgs>(
-      args?: Subset<T, PostCountArgs>,
+    count<T extends FormCountArgs>(
+      args?: Subset<T, FormCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], PostCountAggregateOutputType>
+          : GetScalarType<T['select'], FormCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Post.
+     * Allows you to perform aggregations operations on a Form.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {FormAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -1790,13 +1946,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends PostAggregateArgs>(args: Subset<T, PostAggregateArgs>): Prisma.PrismaPromise<GetPostAggregateType<T>>
+    aggregate<T extends FormAggregateArgs>(args: Subset<T, FormAggregateArgs>): Prisma.PrismaPromise<GetFormAggregateType<T>>
 
     /**
-     * Group by Post.
+     * Group by Form.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostGroupByArgs} args - Group by arguments.
+     * @param {FormGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -1811,14 +1967,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends PostGroupByArgs,
+      T extends FormGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: PostGroupByArgs['orderBy'] }
-        : { orderBy?: PostGroupByArgs['orderBy'] },
+        ? { orderBy: FormGroupByArgs['orderBy'] }
+        : { orderBy?: FormGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -1867,20 +2023,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, PostGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPostGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, FormGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFormGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Post model
+   * Fields of the Form model
    */
-  readonly fields: PostFieldRefs;
+  readonly fields: FormFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Post.
+   * The delegate class that acts as a "Promise-like" for Form.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__PostClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__FormClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     createdBy<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
@@ -1909,423 +2065,436 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Post model
+   * Fields of the Form model
    */
-  interface PostFieldRefs {
-    readonly id: FieldRef<"Post", 'String'>
-    readonly name: FieldRef<"Post", 'String'>
-    readonly createdAt: FieldRef<"Post", 'DateTime'>
-    readonly updatedAt: FieldRef<"Post", 'DateTime'>
-    readonly createdById: FieldRef<"Post", 'String'>
+  interface FormFieldRefs {
+    readonly id: FieldRef<"Form", 'String'>
+    readonly name: FieldRef<"Form", 'String'>
+    readonly description: FieldRef<"Form", 'String'>
+    readonly stared: FieldRef<"Form", 'Boolean'>
+    readonly published: FieldRef<"Form", 'Boolean'>
+    readonly publishedAt: FieldRef<"Form", 'DateTime'>
+    readonly requireAuth: FieldRef<"Form", 'Boolean'>
+    readonly sendResponseEmail: FieldRef<"Form", 'Boolean'>
+    readonly allowResponseEditing: FieldRef<"Form", 'Boolean'>
+    readonly limitOneResponse: FieldRef<"Form", 'Boolean'>
+    readonly allQuestionsRequired: FieldRef<"Form", 'Boolean'>
+    readonly showProgressBar: FieldRef<"Form", 'Boolean'>
+    readonly shuffleQuestionOrder: FieldRef<"Form", 'Boolean'>
+    readonly confirmationMessage: FieldRef<"Form", 'String'>
+    readonly showLinkFormAnotherResponse: FieldRef<"Form", 'Boolean'>
+    readonly createdAt: FieldRef<"Form", 'DateTime'>
+    readonly updatedAt: FieldRef<"Form", 'DateTime'>
+    readonly createdById: FieldRef<"Form", 'String'>
   }
     
 
   // Custom InputTypes
   /**
-   * Post findUnique
+   * Form findUnique
    */
-  export type PostFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FormFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the Form
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: FormSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the Form
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: FormOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: FormInclude<ExtArgs> | null
     /**
-     * Filter, which Post to fetch.
+     * Filter, which Form to fetch.
      */
-    where: PostWhereUniqueInput
+    where: FormWhereUniqueInput
   }
 
   /**
-   * Post findUniqueOrThrow
+   * Form findUniqueOrThrow
    */
-  export type PostFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FormFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the Form
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: FormSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the Form
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: FormOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: FormInclude<ExtArgs> | null
     /**
-     * Filter, which Post to fetch.
+     * Filter, which Form to fetch.
      */
-    where: PostWhereUniqueInput
+    where: FormWhereUniqueInput
   }
 
   /**
-   * Post findFirst
+   * Form findFirst
    */
-  export type PostFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FormFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the Form
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: FormSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the Form
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: FormOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: FormInclude<ExtArgs> | null
     /**
-     * Filter, which Post to fetch.
+     * Filter, which Form to fetch.
      */
-    where?: PostWhereInput
+    where?: FormWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Posts to fetch.
+     * Determine the order of Forms to fetch.
      */
-    orderBy?: PostOrderByWithRelationInput | PostOrderByWithRelationInput[]
+    orderBy?: FormOrderByWithRelationInput | FormOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Posts.
+     * Sets the position for searching for Forms.
      */
-    cursor?: PostWhereUniqueInput
+    cursor?: FormWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Posts from the position of the cursor.
+     * Take `±n` Forms from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Posts.
+     * Skip the first `n` Forms.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Posts.
+     * Filter by unique combinations of Forms.
      */
-    distinct?: PostScalarFieldEnum | PostScalarFieldEnum[]
+    distinct?: FormScalarFieldEnum | FormScalarFieldEnum[]
   }
 
   /**
-   * Post findFirstOrThrow
+   * Form findFirstOrThrow
    */
-  export type PostFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FormFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the Form
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: FormSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the Form
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: FormOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: FormInclude<ExtArgs> | null
     /**
-     * Filter, which Post to fetch.
+     * Filter, which Form to fetch.
      */
-    where?: PostWhereInput
+    where?: FormWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Posts to fetch.
+     * Determine the order of Forms to fetch.
      */
-    orderBy?: PostOrderByWithRelationInput | PostOrderByWithRelationInput[]
+    orderBy?: FormOrderByWithRelationInput | FormOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Posts.
+     * Sets the position for searching for Forms.
      */
-    cursor?: PostWhereUniqueInput
+    cursor?: FormWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Posts from the position of the cursor.
+     * Take `±n` Forms from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Posts.
+     * Skip the first `n` Forms.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Posts.
+     * Filter by unique combinations of Forms.
      */
-    distinct?: PostScalarFieldEnum | PostScalarFieldEnum[]
+    distinct?: FormScalarFieldEnum | FormScalarFieldEnum[]
   }
 
   /**
-   * Post findMany
+   * Form findMany
    */
-  export type PostFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FormFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the Form
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: FormSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the Form
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: FormOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: FormInclude<ExtArgs> | null
     /**
-     * Filter, which Posts to fetch.
+     * Filter, which Forms to fetch.
      */
-    where?: PostWhereInput
+    where?: FormWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Posts to fetch.
+     * Determine the order of Forms to fetch.
      */
-    orderBy?: PostOrderByWithRelationInput | PostOrderByWithRelationInput[]
+    orderBy?: FormOrderByWithRelationInput | FormOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Posts.
+     * Sets the position for listing Forms.
      */
-    cursor?: PostWhereUniqueInput
+    cursor?: FormWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Posts from the position of the cursor.
+     * Take `±n` Forms from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Posts.
+     * Skip the first `n` Forms.
      */
     skip?: number
-    distinct?: PostScalarFieldEnum | PostScalarFieldEnum[]
+    distinct?: FormScalarFieldEnum | FormScalarFieldEnum[]
   }
 
   /**
-   * Post create
+   * Form create
    */
-  export type PostCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FormCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the Form
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: FormSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the Form
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: FormOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: FormInclude<ExtArgs> | null
     /**
-     * The data needed to create a Post.
+     * The data needed to create a Form.
      */
-    data: XOR<PostCreateInput, PostUncheckedCreateInput>
+    data: XOR<FormCreateInput, FormUncheckedCreateInput>
   }
 
   /**
-   * Post createMany
+   * Form createMany
    */
-  export type PostCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FormCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Posts.
+     * The data used to create many Forms.
      */
-    data: PostCreateManyInput | PostCreateManyInput[]
+    data: FormCreateManyInput | FormCreateManyInput[]
   }
 
   /**
-   * Post createManyAndReturn
+   * Form createManyAndReturn
    */
-  export type PostCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FormCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the Form
      */
-    select?: PostSelectCreateManyAndReturn<ExtArgs> | null
+    select?: FormSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the Form
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: FormOmit<ExtArgs> | null
     /**
-     * The data used to create many Posts.
+     * The data used to create many Forms.
      */
-    data: PostCreateManyInput | PostCreateManyInput[]
+    data: FormCreateManyInput | FormCreateManyInput[]
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: FormIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Post update
+   * Form update
    */
-  export type PostUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FormUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the Form
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: FormSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the Form
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: FormOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: FormInclude<ExtArgs> | null
     /**
-     * The data needed to update a Post.
+     * The data needed to update a Form.
      */
-    data: XOR<PostUpdateInput, PostUncheckedUpdateInput>
+    data: XOR<FormUpdateInput, FormUncheckedUpdateInput>
     /**
-     * Choose, which Post to update.
+     * Choose, which Form to update.
      */
-    where: PostWhereUniqueInput
+    where: FormWhereUniqueInput
   }
 
   /**
-   * Post updateMany
+   * Form updateMany
    */
-  export type PostUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FormUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Posts.
+     * The data used to update Forms.
      */
-    data: XOR<PostUpdateManyMutationInput, PostUncheckedUpdateManyInput>
+    data: XOR<FormUpdateManyMutationInput, FormUncheckedUpdateManyInput>
     /**
-     * Filter which Posts to update
+     * Filter which Forms to update
      */
-    where?: PostWhereInput
+    where?: FormWhereInput
     /**
-     * Limit how many Posts to update.
+     * Limit how many Forms to update.
      */
     limit?: number
   }
 
   /**
-   * Post updateManyAndReturn
+   * Form updateManyAndReturn
    */
-  export type PostUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FormUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the Form
      */
-    select?: PostSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: FormSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the Form
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: FormOmit<ExtArgs> | null
     /**
-     * The data used to update Posts.
+     * The data used to update Forms.
      */
-    data: XOR<PostUpdateManyMutationInput, PostUncheckedUpdateManyInput>
+    data: XOR<FormUpdateManyMutationInput, FormUncheckedUpdateManyInput>
     /**
-     * Filter which Posts to update
+     * Filter which Forms to update
      */
-    where?: PostWhereInput
+    where?: FormWhereInput
     /**
-     * Limit how many Posts to update.
+     * Limit how many Forms to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: FormIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Post upsert
+   * Form upsert
    */
-  export type PostUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FormUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the Form
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: FormSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the Form
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: FormOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: FormInclude<ExtArgs> | null
     /**
-     * The filter to search for the Post to update in case it exists.
+     * The filter to search for the Form to update in case it exists.
      */
-    where: PostWhereUniqueInput
+    where: FormWhereUniqueInput
     /**
-     * In case the Post found by the `where` argument doesn't exist, create a new Post with this data.
+     * In case the Form found by the `where` argument doesn't exist, create a new Form with this data.
      */
-    create: XOR<PostCreateInput, PostUncheckedCreateInput>
+    create: XOR<FormCreateInput, FormUncheckedCreateInput>
     /**
-     * In case the Post was found with the provided `where` argument, update it with this data.
+     * In case the Form was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<PostUpdateInput, PostUncheckedUpdateInput>
+    update: XOR<FormUpdateInput, FormUncheckedUpdateInput>
   }
 
   /**
-   * Post delete
+   * Form delete
    */
-  export type PostDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FormDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the Form
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: FormSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the Form
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: FormOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: FormInclude<ExtArgs> | null
     /**
-     * Filter which Post to delete.
+     * Filter which Form to delete.
      */
-    where: PostWhereUniqueInput
+    where: FormWhereUniqueInput
   }
 
   /**
-   * Post deleteMany
+   * Form deleteMany
    */
-  export type PostDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FormDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Posts to delete
+     * Filter which Forms to delete
      */
-    where?: PostWhereInput
+    where?: FormWhereInput
     /**
-     * Limit how many Posts to delete.
+     * Limit how many Forms to delete.
      */
     limit?: number
   }
 
   /**
-   * Post without action
+   * Form without action
    */
-  export type PostDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FormDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the Form
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: FormSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the Form
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: FormOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: FormInclude<ExtArgs> | null
   }
 
 
@@ -2511,7 +2680,7 @@ export namespace Prisma {
     updatedAt?: boolean
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     accounts?: boolean | User$accountsArgs<ExtArgs>
-    posts?: boolean | User$postsArgs<ExtArgs>
+    forms?: boolean | User$formsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -2549,7 +2718,7 @@ export namespace Prisma {
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     accounts?: boolean | User$accountsArgs<ExtArgs>
-    posts?: boolean | User$postsArgs<ExtArgs>
+    forms?: boolean | User$formsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2560,7 +2729,7 @@ export namespace Prisma {
     objects: {
       sessions: Prisma.$SessionPayload<ExtArgs>[]
       accounts: Prisma.$AccountPayload<ExtArgs>[]
-      posts: Prisma.$PostPayload<ExtArgs>[]
+      forms: Prisma.$FormPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -2966,7 +3135,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     accounts<T extends User$accountsArgs<ExtArgs> = {}>(args?: Subset<T, User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    posts<T extends User$postsArgs<ExtArgs> = {}>(args?: Subset<T, User$postsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    forms<T extends User$formsArgs<ExtArgs> = {}>(args?: Subset<T, User$formsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FormPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3437,27 +3606,27 @@ export namespace Prisma {
   }
 
   /**
-   * User.posts
+   * User.forms
    */
-  export type User$postsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$formsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the Form
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: FormSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the Form
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: FormOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
-    where?: PostWhereInput
-    orderBy?: PostOrderByWithRelationInput | PostOrderByWithRelationInput[]
-    cursor?: PostWhereUniqueInput
+    include?: FormInclude<ExtArgs> | null
+    where?: FormWhereInput
+    orderBy?: FormOrderByWithRelationInput | FormOrderByWithRelationInput[]
+    cursor?: FormWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: PostScalarFieldEnum | PostScalarFieldEnum[]
+    distinct?: FormScalarFieldEnum | FormScalarFieldEnum[]
   }
 
   /**
@@ -6751,15 +6920,28 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-  export const PostScalarFieldEnum: {
+  export const FormScalarFieldEnum: {
     id: 'id',
     name: 'name',
+    description: 'description',
+    stared: 'stared',
+    published: 'published',
+    publishedAt: 'publishedAt',
+    requireAuth: 'requireAuth',
+    sendResponseEmail: 'sendResponseEmail',
+    allowResponseEditing: 'allowResponseEditing',
+    limitOneResponse: 'limitOneResponse',
+    allQuestionsRequired: 'allQuestionsRequired',
+    showProgressBar: 'showProgressBar',
+    shuffleQuestionOrder: 'shuffleQuestionOrder',
+    confirmationMessage: 'confirmationMessage',
+    showLinkFormAnotherResponse: 'showLinkFormAnotherResponse',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     createdById: 'createdById'
   };
 
-  export type PostScalarFieldEnum = (typeof PostScalarFieldEnum)[keyof typeof PostScalarFieldEnum]
+  export type FormScalarFieldEnum = (typeof FormScalarFieldEnum)[keyof typeof FormScalarFieldEnum]
 
 
   export const UserScalarFieldEnum: {
@@ -6849,16 +7031,16 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'DateTime'
+   * Reference to a field of type 'Boolean'
    */
-  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
   /**
-   * Reference to a field of type 'Boolean'
+   * Reference to a field of type 'DateTime'
    */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
     
 
 
@@ -6872,59 +7054,124 @@ export namespace Prisma {
    */
 
 
-  export type PostWhereInput = {
-    AND?: PostWhereInput | PostWhereInput[]
-    OR?: PostWhereInput[]
-    NOT?: PostWhereInput | PostWhereInput[]
-    id?: StringFilter<"Post"> | string
-    name?: StringFilter<"Post"> | string
-    createdAt?: DateTimeFilter<"Post"> | Date | string
-    updatedAt?: DateTimeFilter<"Post"> | Date | string
-    createdById?: StringFilter<"Post"> | string
+  export type FormWhereInput = {
+    AND?: FormWhereInput | FormWhereInput[]
+    OR?: FormWhereInput[]
+    NOT?: FormWhereInput | FormWhereInput[]
+    id?: StringFilter<"Form"> | string
+    name?: StringFilter<"Form"> | string
+    description?: StringNullableFilter<"Form"> | string | null
+    stared?: BoolFilter<"Form"> | boolean
+    published?: BoolFilter<"Form"> | boolean
+    publishedAt?: DateTimeNullableFilter<"Form"> | Date | string | null
+    requireAuth?: BoolFilter<"Form"> | boolean
+    sendResponseEmail?: BoolFilter<"Form"> | boolean
+    allowResponseEditing?: BoolFilter<"Form"> | boolean
+    limitOneResponse?: BoolFilter<"Form"> | boolean
+    allQuestionsRequired?: BoolFilter<"Form"> | boolean
+    showProgressBar?: BoolFilter<"Form"> | boolean
+    shuffleQuestionOrder?: BoolFilter<"Form"> | boolean
+    confirmationMessage?: StringFilter<"Form"> | string
+    showLinkFormAnotherResponse?: BoolFilter<"Form"> | boolean
+    createdAt?: DateTimeFilter<"Form"> | Date | string
+    updatedAt?: DateTimeFilter<"Form"> | Date | string
+    createdById?: StringFilter<"Form"> | string
     createdBy?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
-  export type PostOrderByWithRelationInput = {
+  export type FormOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    stared?: SortOrder
+    published?: SortOrder
+    publishedAt?: SortOrderInput | SortOrder
+    requireAuth?: SortOrder
+    sendResponseEmail?: SortOrder
+    allowResponseEditing?: SortOrder
+    limitOneResponse?: SortOrder
+    allQuestionsRequired?: SortOrder
+    showProgressBar?: SortOrder
+    shuffleQuestionOrder?: SortOrder
+    confirmationMessage?: SortOrder
+    showLinkFormAnotherResponse?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     createdById?: SortOrder
     createdBy?: UserOrderByWithRelationInput
   }
 
-  export type PostWhereUniqueInput = Prisma.AtLeast<{
+  export type FormWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: PostWhereInput | PostWhereInput[]
-    OR?: PostWhereInput[]
-    NOT?: PostWhereInput | PostWhereInput[]
-    name?: StringFilter<"Post"> | string
-    createdAt?: DateTimeFilter<"Post"> | Date | string
-    updatedAt?: DateTimeFilter<"Post"> | Date | string
-    createdById?: StringFilter<"Post"> | string
+    AND?: FormWhereInput | FormWhereInput[]
+    OR?: FormWhereInput[]
+    NOT?: FormWhereInput | FormWhereInput[]
+    name?: StringFilter<"Form"> | string
+    description?: StringNullableFilter<"Form"> | string | null
+    stared?: BoolFilter<"Form"> | boolean
+    published?: BoolFilter<"Form"> | boolean
+    publishedAt?: DateTimeNullableFilter<"Form"> | Date | string | null
+    requireAuth?: BoolFilter<"Form"> | boolean
+    sendResponseEmail?: BoolFilter<"Form"> | boolean
+    allowResponseEditing?: BoolFilter<"Form"> | boolean
+    limitOneResponse?: BoolFilter<"Form"> | boolean
+    allQuestionsRequired?: BoolFilter<"Form"> | boolean
+    showProgressBar?: BoolFilter<"Form"> | boolean
+    shuffleQuestionOrder?: BoolFilter<"Form"> | boolean
+    confirmationMessage?: StringFilter<"Form"> | string
+    showLinkFormAnotherResponse?: BoolFilter<"Form"> | boolean
+    createdAt?: DateTimeFilter<"Form"> | Date | string
+    updatedAt?: DateTimeFilter<"Form"> | Date | string
+    createdById?: StringFilter<"Form"> | string
     createdBy?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
-  export type PostOrderByWithAggregationInput = {
+  export type FormOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    stared?: SortOrder
+    published?: SortOrder
+    publishedAt?: SortOrderInput | SortOrder
+    requireAuth?: SortOrder
+    sendResponseEmail?: SortOrder
+    allowResponseEditing?: SortOrder
+    limitOneResponse?: SortOrder
+    allQuestionsRequired?: SortOrder
+    showProgressBar?: SortOrder
+    shuffleQuestionOrder?: SortOrder
+    confirmationMessage?: SortOrder
+    showLinkFormAnotherResponse?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     createdById?: SortOrder
-    _count?: PostCountOrderByAggregateInput
-    _max?: PostMaxOrderByAggregateInput
-    _min?: PostMinOrderByAggregateInput
+    _count?: FormCountOrderByAggregateInput
+    _max?: FormMaxOrderByAggregateInput
+    _min?: FormMinOrderByAggregateInput
   }
 
-  export type PostScalarWhereWithAggregatesInput = {
-    AND?: PostScalarWhereWithAggregatesInput | PostScalarWhereWithAggregatesInput[]
-    OR?: PostScalarWhereWithAggregatesInput[]
-    NOT?: PostScalarWhereWithAggregatesInput | PostScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Post"> | string
-    name?: StringWithAggregatesFilter<"Post"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"Post"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"Post"> | Date | string
-    createdById?: StringWithAggregatesFilter<"Post"> | string
+  export type FormScalarWhereWithAggregatesInput = {
+    AND?: FormScalarWhereWithAggregatesInput | FormScalarWhereWithAggregatesInput[]
+    OR?: FormScalarWhereWithAggregatesInput[]
+    NOT?: FormScalarWhereWithAggregatesInput | FormScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Form"> | string
+    name?: StringWithAggregatesFilter<"Form"> | string
+    description?: StringNullableWithAggregatesFilter<"Form"> | string | null
+    stared?: BoolWithAggregatesFilter<"Form"> | boolean
+    published?: BoolWithAggregatesFilter<"Form"> | boolean
+    publishedAt?: DateTimeNullableWithAggregatesFilter<"Form"> | Date | string | null
+    requireAuth?: BoolWithAggregatesFilter<"Form"> | boolean
+    sendResponseEmail?: BoolWithAggregatesFilter<"Form"> | boolean
+    allowResponseEditing?: BoolWithAggregatesFilter<"Form"> | boolean
+    limitOneResponse?: BoolWithAggregatesFilter<"Form"> | boolean
+    allQuestionsRequired?: BoolWithAggregatesFilter<"Form"> | boolean
+    showProgressBar?: BoolWithAggregatesFilter<"Form"> | boolean
+    shuffleQuestionOrder?: BoolWithAggregatesFilter<"Form"> | boolean
+    confirmationMessage?: StringWithAggregatesFilter<"Form"> | string
+    showLinkFormAnotherResponse?: BoolWithAggregatesFilter<"Form"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"Form"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Form"> | Date | string
+    createdById?: StringWithAggregatesFilter<"Form"> | string
   }
 
   export type UserWhereInput = {
@@ -6940,7 +7187,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"User"> | Date | string
     sessions?: SessionListRelationFilter
     accounts?: AccountListRelationFilter
-    posts?: PostListRelationFilter
+    forms?: FormListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -6953,7 +7200,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     sessions?: SessionOrderByRelationAggregateInput
     accounts?: AccountOrderByRelationAggregateInput
-    posts?: PostOrderByRelationAggregateInput
+    forms?: FormOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -6969,7 +7216,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"User"> | Date | string
     sessions?: SessionListRelationFilter
     accounts?: AccountListRelationFilter
-    posts?: PostListRelationFilter
+    forms?: FormListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -7220,56 +7467,147 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"Verification"> | Date | string
   }
 
-  export type PostCreateInput = {
+  export type FormCreateInput = {
     id?: string
-    name: string
+    name?: string
+    description?: string | null
+    stared?: boolean
+    published?: boolean
+    publishedAt?: Date | string | null
+    requireAuth?: boolean
+    sendResponseEmail?: boolean
+    allowResponseEditing?: boolean
+    limitOneResponse?: boolean
+    allQuestionsRequired?: boolean
+    showProgressBar?: boolean
+    shuffleQuestionOrder?: boolean
+    confirmationMessage?: string
+    showLinkFormAnotherResponse?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
-    createdBy: UserCreateNestedOneWithoutPostsInput
+    createdBy: UserCreateNestedOneWithoutFormsInput
   }
 
-  export type PostUncheckedCreateInput = {
+  export type FormUncheckedCreateInput = {
     id?: string
-    name: string
+    name?: string
+    description?: string | null
+    stared?: boolean
+    published?: boolean
+    publishedAt?: Date | string | null
+    requireAuth?: boolean
+    sendResponseEmail?: boolean
+    allowResponseEditing?: boolean
+    limitOneResponse?: boolean
+    allQuestionsRequired?: boolean
+    showProgressBar?: boolean
+    shuffleQuestionOrder?: boolean
+    confirmationMessage?: string
+    showLinkFormAnotherResponse?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     createdById: string
   }
 
-  export type PostUpdateInput = {
+  export type FormUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    stared?: BoolFieldUpdateOperationsInput | boolean
+    published?: BoolFieldUpdateOperationsInput | boolean
+    publishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    requireAuth?: BoolFieldUpdateOperationsInput | boolean
+    sendResponseEmail?: BoolFieldUpdateOperationsInput | boolean
+    allowResponseEditing?: BoolFieldUpdateOperationsInput | boolean
+    limitOneResponse?: BoolFieldUpdateOperationsInput | boolean
+    allQuestionsRequired?: BoolFieldUpdateOperationsInput | boolean
+    showProgressBar?: BoolFieldUpdateOperationsInput | boolean
+    shuffleQuestionOrder?: BoolFieldUpdateOperationsInput | boolean
+    confirmationMessage?: StringFieldUpdateOperationsInput | string
+    showLinkFormAnotherResponse?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdBy?: UserUpdateOneRequiredWithoutPostsNestedInput
+    createdBy?: UserUpdateOneRequiredWithoutFormsNestedInput
   }
 
-  export type PostUncheckedUpdateInput = {
+  export type FormUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    stared?: BoolFieldUpdateOperationsInput | boolean
+    published?: BoolFieldUpdateOperationsInput | boolean
+    publishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    requireAuth?: BoolFieldUpdateOperationsInput | boolean
+    sendResponseEmail?: BoolFieldUpdateOperationsInput | boolean
+    allowResponseEditing?: BoolFieldUpdateOperationsInput | boolean
+    limitOneResponse?: BoolFieldUpdateOperationsInput | boolean
+    allQuestionsRequired?: BoolFieldUpdateOperationsInput | boolean
+    showProgressBar?: BoolFieldUpdateOperationsInput | boolean
+    shuffleQuestionOrder?: BoolFieldUpdateOperationsInput | boolean
+    confirmationMessage?: StringFieldUpdateOperationsInput | string
+    showLinkFormAnotherResponse?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdById?: StringFieldUpdateOperationsInput | string
   }
 
-  export type PostCreateManyInput = {
+  export type FormCreateManyInput = {
     id?: string
-    name: string
+    name?: string
+    description?: string | null
+    stared?: boolean
+    published?: boolean
+    publishedAt?: Date | string | null
+    requireAuth?: boolean
+    sendResponseEmail?: boolean
+    allowResponseEditing?: boolean
+    limitOneResponse?: boolean
+    allQuestionsRequired?: boolean
+    showProgressBar?: boolean
+    shuffleQuestionOrder?: boolean
+    confirmationMessage?: string
+    showLinkFormAnotherResponse?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     createdById: string
   }
 
-  export type PostUpdateManyMutationInput = {
+  export type FormUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    stared?: BoolFieldUpdateOperationsInput | boolean
+    published?: BoolFieldUpdateOperationsInput | boolean
+    publishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    requireAuth?: BoolFieldUpdateOperationsInput | boolean
+    sendResponseEmail?: BoolFieldUpdateOperationsInput | boolean
+    allowResponseEditing?: BoolFieldUpdateOperationsInput | boolean
+    limitOneResponse?: BoolFieldUpdateOperationsInput | boolean
+    allQuestionsRequired?: BoolFieldUpdateOperationsInput | boolean
+    showProgressBar?: BoolFieldUpdateOperationsInput | boolean
+    shuffleQuestionOrder?: BoolFieldUpdateOperationsInput | boolean
+    confirmationMessage?: StringFieldUpdateOperationsInput | string
+    showLinkFormAnotherResponse?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PostUncheckedUpdateManyInput = {
+  export type FormUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    stared?: BoolFieldUpdateOperationsInput | boolean
+    published?: BoolFieldUpdateOperationsInput | boolean
+    publishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    requireAuth?: BoolFieldUpdateOperationsInput | boolean
+    sendResponseEmail?: BoolFieldUpdateOperationsInput | boolean
+    allowResponseEditing?: BoolFieldUpdateOperationsInput | boolean
+    limitOneResponse?: BoolFieldUpdateOperationsInput | boolean
+    allQuestionsRequired?: BoolFieldUpdateOperationsInput | boolean
+    showProgressBar?: BoolFieldUpdateOperationsInput | boolean
+    shuffleQuestionOrder?: BoolFieldUpdateOperationsInput | boolean
+    confirmationMessage?: StringFieldUpdateOperationsInput | string
+    showLinkFormAnotherResponse?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdById?: StringFieldUpdateOperationsInput | string
@@ -7285,7 +7623,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
     accounts?: AccountCreateNestedManyWithoutUserInput
-    posts?: PostCreateNestedManyWithoutCreatedByInput
+    forms?: FormCreateNestedManyWithoutCreatedByInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -7298,7 +7636,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    posts?: PostUncheckedCreateNestedManyWithoutCreatedByInput
+    forms?: FormUncheckedCreateNestedManyWithoutCreatedByInput
   }
 
   export type UserUpdateInput = {
@@ -7311,7 +7649,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
     accounts?: AccountUpdateManyWithoutUserNestedInput
-    posts?: PostUpdateManyWithoutCreatedByNestedInput
+    forms?: FormUpdateManyWithoutCreatedByNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -7324,7 +7662,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    posts?: PostUncheckedUpdateManyWithoutCreatedByNestedInput
+    forms?: FormUncheckedUpdateManyWithoutCreatedByNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -7621,6 +7959,36 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[]
@@ -7637,25 +8005,69 @@ export namespace Prisma {
     isNot?: UserWhereInput
   }
 
-  export type PostCountOrderByAggregateInput = {
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
+  export type FormCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    description?: SortOrder
+    stared?: SortOrder
+    published?: SortOrder
+    publishedAt?: SortOrder
+    requireAuth?: SortOrder
+    sendResponseEmail?: SortOrder
+    allowResponseEditing?: SortOrder
+    limitOneResponse?: SortOrder
+    allQuestionsRequired?: SortOrder
+    showProgressBar?: SortOrder
+    shuffleQuestionOrder?: SortOrder
+    confirmationMessage?: SortOrder
+    showLinkFormAnotherResponse?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     createdById?: SortOrder
   }
 
-  export type PostMaxOrderByAggregateInput = {
+  export type FormMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    description?: SortOrder
+    stared?: SortOrder
+    published?: SortOrder
+    publishedAt?: SortOrder
+    requireAuth?: SortOrder
+    sendResponseEmail?: SortOrder
+    allowResponseEditing?: SortOrder
+    limitOneResponse?: SortOrder
+    allQuestionsRequired?: SortOrder
+    showProgressBar?: SortOrder
+    shuffleQuestionOrder?: SortOrder
+    confirmationMessage?: SortOrder
+    showLinkFormAnotherResponse?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     createdById?: SortOrder
   }
 
-  export type PostMinOrderByAggregateInput = {
+  export type FormMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    description?: SortOrder
+    stared?: SortOrder
+    published?: SortOrder
+    publishedAt?: SortOrder
+    requireAuth?: SortOrder
+    sendResponseEmail?: SortOrder
+    allowResponseEditing?: SortOrder
+    limitOneResponse?: SortOrder
+    allQuestionsRequired?: SortOrder
+    showProgressBar?: SortOrder
+    shuffleQuestionOrder?: SortOrder
+    confirmationMessage?: SortOrder
+    showLinkFormAnotherResponse?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     createdById?: SortOrder
@@ -7678,6 +8090,45 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[]
@@ -7692,25 +8143,6 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type BoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
   export type SessionListRelationFilter = {
     every?: SessionWhereInput
     some?: SessionWhereInput
@@ -7723,15 +8155,10 @@ export namespace Prisma {
     none?: AccountWhereInput
   }
 
-  export type PostListRelationFilter = {
-    every?: PostWhereInput
-    some?: PostWhereInput
-    none?: PostWhereInput
-  }
-
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
+  export type FormListRelationFilter = {
+    every?: FormWhereInput
+    some?: FormWhereInput
+    none?: FormWhereInput
   }
 
   export type SessionOrderByRelationAggregateInput = {
@@ -7742,7 +8169,7 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type PostOrderByRelationAggregateInput = {
+  export type FormOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -7776,31 +8203,6 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
   export type SessionCountOrderByAggregateInput = {
     id?: SortOrder
     expiresAt?: SortOrder
@@ -7832,17 +8234,6 @@ export namespace Prisma {
     ipAddress?: SortOrder
     userAgent?: SortOrder
     userId?: SortOrder
-  }
-
-  export type DateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | null
-    notIn?: Date[] | string[] | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
   export type AccountCountOrderByAggregateInput = {
@@ -7893,20 +8284,6 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | null
-    notIn?: Date[] | string[] | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
-  }
-
   export type VerificationCountOrderByAggregateInput = {
     id?: SortOrder
     identifier?: SortOrder
@@ -7934,9 +8311,9 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type UserCreateNestedOneWithoutPostsInput = {
-    create?: XOR<UserCreateWithoutPostsInput, UserUncheckedCreateWithoutPostsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutPostsInput
+  export type UserCreateNestedOneWithoutFormsInput = {
+    create?: XOR<UserCreateWithoutFormsInput, UserUncheckedCreateWithoutFormsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFormsInput
     connect?: UserWhereUniqueInput
   }
 
@@ -7944,16 +8321,28 @@ export namespace Prisma {
     set?: string
   }
 
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
   }
 
-  export type UserUpdateOneRequiredWithoutPostsNestedInput = {
-    create?: XOR<UserCreateWithoutPostsInput, UserUncheckedCreateWithoutPostsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutPostsInput
-    upsert?: UserUpsertWithoutPostsInput
+  export type UserUpdateOneRequiredWithoutFormsNestedInput = {
+    create?: XOR<UserCreateWithoutFormsInput, UserUncheckedCreateWithoutFormsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFormsInput
+    upsert?: UserUpsertWithoutFormsInput
     connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutPostsInput, UserUpdateWithoutPostsInput>, UserUncheckedUpdateWithoutPostsInput>
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFormsInput, UserUpdateWithoutFormsInput>, UserUncheckedUpdateWithoutFormsInput>
   }
 
   export type SessionCreateNestedManyWithoutUserInput = {
@@ -7970,11 +8359,11 @@ export namespace Prisma {
     connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
   }
 
-  export type PostCreateNestedManyWithoutCreatedByInput = {
-    create?: XOR<PostCreateWithoutCreatedByInput, PostUncheckedCreateWithoutCreatedByInput> | PostCreateWithoutCreatedByInput[] | PostUncheckedCreateWithoutCreatedByInput[]
-    connectOrCreate?: PostCreateOrConnectWithoutCreatedByInput | PostCreateOrConnectWithoutCreatedByInput[]
-    createMany?: PostCreateManyCreatedByInputEnvelope
-    connect?: PostWhereUniqueInput | PostWhereUniqueInput[]
+  export type FormCreateNestedManyWithoutCreatedByInput = {
+    create?: XOR<FormCreateWithoutCreatedByInput, FormUncheckedCreateWithoutCreatedByInput> | FormCreateWithoutCreatedByInput[] | FormUncheckedCreateWithoutCreatedByInput[]
+    connectOrCreate?: FormCreateOrConnectWithoutCreatedByInput | FormCreateOrConnectWithoutCreatedByInput[]
+    createMany?: FormCreateManyCreatedByInputEnvelope
+    connect?: FormWhereUniqueInput | FormWhereUniqueInput[]
   }
 
   export type SessionUncheckedCreateNestedManyWithoutUserInput = {
@@ -7991,19 +8380,11 @@ export namespace Prisma {
     connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
   }
 
-  export type PostUncheckedCreateNestedManyWithoutCreatedByInput = {
-    create?: XOR<PostCreateWithoutCreatedByInput, PostUncheckedCreateWithoutCreatedByInput> | PostCreateWithoutCreatedByInput[] | PostUncheckedCreateWithoutCreatedByInput[]
-    connectOrCreate?: PostCreateOrConnectWithoutCreatedByInput | PostCreateOrConnectWithoutCreatedByInput[]
-    createMany?: PostCreateManyCreatedByInputEnvelope
-    connect?: PostWhereUniqueInput | PostWhereUniqueInput[]
-  }
-
-  export type BoolFieldUpdateOperationsInput = {
-    set?: boolean
-  }
-
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
+  export type FormUncheckedCreateNestedManyWithoutCreatedByInput = {
+    create?: XOR<FormCreateWithoutCreatedByInput, FormUncheckedCreateWithoutCreatedByInput> | FormCreateWithoutCreatedByInput[] | FormUncheckedCreateWithoutCreatedByInput[]
+    connectOrCreate?: FormCreateOrConnectWithoutCreatedByInput | FormCreateOrConnectWithoutCreatedByInput[]
+    createMany?: FormCreateManyCreatedByInputEnvelope
+    connect?: FormWhereUniqueInput | FormWhereUniqueInput[]
   }
 
   export type SessionUpdateManyWithoutUserNestedInput = {
@@ -8034,18 +8415,18 @@ export namespace Prisma {
     deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
   }
 
-  export type PostUpdateManyWithoutCreatedByNestedInput = {
-    create?: XOR<PostCreateWithoutCreatedByInput, PostUncheckedCreateWithoutCreatedByInput> | PostCreateWithoutCreatedByInput[] | PostUncheckedCreateWithoutCreatedByInput[]
-    connectOrCreate?: PostCreateOrConnectWithoutCreatedByInput | PostCreateOrConnectWithoutCreatedByInput[]
-    upsert?: PostUpsertWithWhereUniqueWithoutCreatedByInput | PostUpsertWithWhereUniqueWithoutCreatedByInput[]
-    createMany?: PostCreateManyCreatedByInputEnvelope
-    set?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    disconnect?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    delete?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    connect?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    update?: PostUpdateWithWhereUniqueWithoutCreatedByInput | PostUpdateWithWhereUniqueWithoutCreatedByInput[]
-    updateMany?: PostUpdateManyWithWhereWithoutCreatedByInput | PostUpdateManyWithWhereWithoutCreatedByInput[]
-    deleteMany?: PostScalarWhereInput | PostScalarWhereInput[]
+  export type FormUpdateManyWithoutCreatedByNestedInput = {
+    create?: XOR<FormCreateWithoutCreatedByInput, FormUncheckedCreateWithoutCreatedByInput> | FormCreateWithoutCreatedByInput[] | FormUncheckedCreateWithoutCreatedByInput[]
+    connectOrCreate?: FormCreateOrConnectWithoutCreatedByInput | FormCreateOrConnectWithoutCreatedByInput[]
+    upsert?: FormUpsertWithWhereUniqueWithoutCreatedByInput | FormUpsertWithWhereUniqueWithoutCreatedByInput[]
+    createMany?: FormCreateManyCreatedByInputEnvelope
+    set?: FormWhereUniqueInput | FormWhereUniqueInput[]
+    disconnect?: FormWhereUniqueInput | FormWhereUniqueInput[]
+    delete?: FormWhereUniqueInput | FormWhereUniqueInput[]
+    connect?: FormWhereUniqueInput | FormWhereUniqueInput[]
+    update?: FormUpdateWithWhereUniqueWithoutCreatedByInput | FormUpdateWithWhereUniqueWithoutCreatedByInput[]
+    updateMany?: FormUpdateManyWithWhereWithoutCreatedByInput | FormUpdateManyWithWhereWithoutCreatedByInput[]
+    deleteMany?: FormScalarWhereInput | FormScalarWhereInput[]
   }
 
   export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
@@ -8076,18 +8457,18 @@ export namespace Prisma {
     deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
   }
 
-  export type PostUncheckedUpdateManyWithoutCreatedByNestedInput = {
-    create?: XOR<PostCreateWithoutCreatedByInput, PostUncheckedCreateWithoutCreatedByInput> | PostCreateWithoutCreatedByInput[] | PostUncheckedCreateWithoutCreatedByInput[]
-    connectOrCreate?: PostCreateOrConnectWithoutCreatedByInput | PostCreateOrConnectWithoutCreatedByInput[]
-    upsert?: PostUpsertWithWhereUniqueWithoutCreatedByInput | PostUpsertWithWhereUniqueWithoutCreatedByInput[]
-    createMany?: PostCreateManyCreatedByInputEnvelope
-    set?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    disconnect?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    delete?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    connect?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    update?: PostUpdateWithWhereUniqueWithoutCreatedByInput | PostUpdateWithWhereUniqueWithoutCreatedByInput[]
-    updateMany?: PostUpdateManyWithWhereWithoutCreatedByInput | PostUpdateManyWithWhereWithoutCreatedByInput[]
-    deleteMany?: PostScalarWhereInput | PostScalarWhereInput[]
+  export type FormUncheckedUpdateManyWithoutCreatedByNestedInput = {
+    create?: XOR<FormCreateWithoutCreatedByInput, FormUncheckedCreateWithoutCreatedByInput> | FormCreateWithoutCreatedByInput[] | FormUncheckedCreateWithoutCreatedByInput[]
+    connectOrCreate?: FormCreateOrConnectWithoutCreatedByInput | FormCreateOrConnectWithoutCreatedByInput[]
+    upsert?: FormUpsertWithWhereUniqueWithoutCreatedByInput | FormUpsertWithWhereUniqueWithoutCreatedByInput[]
+    createMany?: FormCreateManyCreatedByInputEnvelope
+    set?: FormWhereUniqueInput | FormWhereUniqueInput[]
+    disconnect?: FormWhereUniqueInput | FormWhereUniqueInput[]
+    delete?: FormWhereUniqueInput | FormWhereUniqueInput[]
+    connect?: FormWhereUniqueInput | FormWhereUniqueInput[]
+    update?: FormUpdateWithWhereUniqueWithoutCreatedByInput | FormUpdateWithWhereUniqueWithoutCreatedByInput[]
+    updateMany?: FormUpdateManyWithWhereWithoutCreatedByInput | FormUpdateManyWithWhereWithoutCreatedByInput[]
+    deleteMany?: FormScalarWhereInput | FormScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutSessionsInput = {
@@ -8110,10 +8491,6 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type NullableDateTimeFieldUpdateOperationsInput = {
-    set?: Date | string | null
-  }
-
   export type UserUpdateOneRequiredWithoutAccountsNestedInput = {
     create?: XOR<UserCreateWithoutAccountsInput, UserUncheckedCreateWithoutAccountsInput>
     connectOrCreate?: UserCreateOrConnectWithoutAccountsInput
@@ -8134,6 +8511,36 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -8175,47 +8582,6 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | null
@@ -8244,15 +8610,12 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | null
-    notIn?: Date[] | string[] | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -8269,7 +8632,21 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
-  export type UserCreateWithoutPostsInput = {
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type UserCreateWithoutFormsInput = {
     id: string
     name: string
     email: string
@@ -8281,7 +8658,7 @@ export namespace Prisma {
     accounts?: AccountCreateNestedManyWithoutUserInput
   }
 
-  export type UserUncheckedCreateWithoutPostsInput = {
+  export type UserUncheckedCreateWithoutFormsInput = {
     id: string
     name: string
     email: string
@@ -8293,23 +8670,23 @@ export namespace Prisma {
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
   }
 
-  export type UserCreateOrConnectWithoutPostsInput = {
+  export type UserCreateOrConnectWithoutFormsInput = {
     where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutPostsInput, UserUncheckedCreateWithoutPostsInput>
+    create: XOR<UserCreateWithoutFormsInput, UserUncheckedCreateWithoutFormsInput>
   }
 
-  export type UserUpsertWithoutPostsInput = {
-    update: XOR<UserUpdateWithoutPostsInput, UserUncheckedUpdateWithoutPostsInput>
-    create: XOR<UserCreateWithoutPostsInput, UserUncheckedCreateWithoutPostsInput>
+  export type UserUpsertWithoutFormsInput = {
+    update: XOR<UserUpdateWithoutFormsInput, UserUncheckedUpdateWithoutFormsInput>
+    create: XOR<UserCreateWithoutFormsInput, UserUncheckedCreateWithoutFormsInput>
     where?: UserWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutPostsInput = {
+  export type UserUpdateToOneWithWhereWithoutFormsInput = {
     where?: UserWhereInput
-    data: XOR<UserUpdateWithoutPostsInput, UserUncheckedUpdateWithoutPostsInput>
+    data: XOR<UserUpdateWithoutFormsInput, UserUncheckedUpdateWithoutFormsInput>
   }
 
-  export type UserUpdateWithoutPostsInput = {
+  export type UserUpdateWithoutFormsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
@@ -8321,7 +8698,7 @@ export namespace Prisma {
     accounts?: AccountUpdateManyWithoutUserNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutPostsInput = {
+  export type UserUncheckedUpdateWithoutFormsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
@@ -8401,27 +8778,53 @@ export namespace Prisma {
     data: AccountCreateManyUserInput | AccountCreateManyUserInput[]
   }
 
-  export type PostCreateWithoutCreatedByInput = {
+  export type FormCreateWithoutCreatedByInput = {
     id?: string
-    name: string
+    name?: string
+    description?: string | null
+    stared?: boolean
+    published?: boolean
+    publishedAt?: Date | string | null
+    requireAuth?: boolean
+    sendResponseEmail?: boolean
+    allowResponseEditing?: boolean
+    limitOneResponse?: boolean
+    allQuestionsRequired?: boolean
+    showProgressBar?: boolean
+    shuffleQuestionOrder?: boolean
+    confirmationMessage?: string
+    showLinkFormAnotherResponse?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type PostUncheckedCreateWithoutCreatedByInput = {
+  export type FormUncheckedCreateWithoutCreatedByInput = {
     id?: string
-    name: string
+    name?: string
+    description?: string | null
+    stared?: boolean
+    published?: boolean
+    publishedAt?: Date | string | null
+    requireAuth?: boolean
+    sendResponseEmail?: boolean
+    allowResponseEditing?: boolean
+    limitOneResponse?: boolean
+    allQuestionsRequired?: boolean
+    showProgressBar?: boolean
+    shuffleQuestionOrder?: boolean
+    confirmationMessage?: string
+    showLinkFormAnotherResponse?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type PostCreateOrConnectWithoutCreatedByInput = {
-    where: PostWhereUniqueInput
-    create: XOR<PostCreateWithoutCreatedByInput, PostUncheckedCreateWithoutCreatedByInput>
+  export type FormCreateOrConnectWithoutCreatedByInput = {
+    where: FormWhereUniqueInput
+    create: XOR<FormCreateWithoutCreatedByInput, FormUncheckedCreateWithoutCreatedByInput>
   }
 
-  export type PostCreateManyCreatedByInputEnvelope = {
-    data: PostCreateManyCreatedByInput | PostCreateManyCreatedByInput[]
+  export type FormCreateManyCreatedByInputEnvelope = {
+    data: FormCreateManyCreatedByInput | FormCreateManyCreatedByInput[]
   }
 
   export type SessionUpsertWithWhereUniqueWithoutUserInput = {
@@ -8489,31 +8892,44 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Account"> | Date | string
   }
 
-  export type PostUpsertWithWhereUniqueWithoutCreatedByInput = {
-    where: PostWhereUniqueInput
-    update: XOR<PostUpdateWithoutCreatedByInput, PostUncheckedUpdateWithoutCreatedByInput>
-    create: XOR<PostCreateWithoutCreatedByInput, PostUncheckedCreateWithoutCreatedByInput>
+  export type FormUpsertWithWhereUniqueWithoutCreatedByInput = {
+    where: FormWhereUniqueInput
+    update: XOR<FormUpdateWithoutCreatedByInput, FormUncheckedUpdateWithoutCreatedByInput>
+    create: XOR<FormCreateWithoutCreatedByInput, FormUncheckedCreateWithoutCreatedByInput>
   }
 
-  export type PostUpdateWithWhereUniqueWithoutCreatedByInput = {
-    where: PostWhereUniqueInput
-    data: XOR<PostUpdateWithoutCreatedByInput, PostUncheckedUpdateWithoutCreatedByInput>
+  export type FormUpdateWithWhereUniqueWithoutCreatedByInput = {
+    where: FormWhereUniqueInput
+    data: XOR<FormUpdateWithoutCreatedByInput, FormUncheckedUpdateWithoutCreatedByInput>
   }
 
-  export type PostUpdateManyWithWhereWithoutCreatedByInput = {
-    where: PostScalarWhereInput
-    data: XOR<PostUpdateManyMutationInput, PostUncheckedUpdateManyWithoutCreatedByInput>
+  export type FormUpdateManyWithWhereWithoutCreatedByInput = {
+    where: FormScalarWhereInput
+    data: XOR<FormUpdateManyMutationInput, FormUncheckedUpdateManyWithoutCreatedByInput>
   }
 
-  export type PostScalarWhereInput = {
-    AND?: PostScalarWhereInput | PostScalarWhereInput[]
-    OR?: PostScalarWhereInput[]
-    NOT?: PostScalarWhereInput | PostScalarWhereInput[]
-    id?: StringFilter<"Post"> | string
-    name?: StringFilter<"Post"> | string
-    createdAt?: DateTimeFilter<"Post"> | Date | string
-    updatedAt?: DateTimeFilter<"Post"> | Date | string
-    createdById?: StringFilter<"Post"> | string
+  export type FormScalarWhereInput = {
+    AND?: FormScalarWhereInput | FormScalarWhereInput[]
+    OR?: FormScalarWhereInput[]
+    NOT?: FormScalarWhereInput | FormScalarWhereInput[]
+    id?: StringFilter<"Form"> | string
+    name?: StringFilter<"Form"> | string
+    description?: StringNullableFilter<"Form"> | string | null
+    stared?: BoolFilter<"Form"> | boolean
+    published?: BoolFilter<"Form"> | boolean
+    publishedAt?: DateTimeNullableFilter<"Form"> | Date | string | null
+    requireAuth?: BoolFilter<"Form"> | boolean
+    sendResponseEmail?: BoolFilter<"Form"> | boolean
+    allowResponseEditing?: BoolFilter<"Form"> | boolean
+    limitOneResponse?: BoolFilter<"Form"> | boolean
+    allQuestionsRequired?: BoolFilter<"Form"> | boolean
+    showProgressBar?: BoolFilter<"Form"> | boolean
+    shuffleQuestionOrder?: BoolFilter<"Form"> | boolean
+    confirmationMessage?: StringFilter<"Form"> | string
+    showLinkFormAnotherResponse?: BoolFilter<"Form"> | boolean
+    createdAt?: DateTimeFilter<"Form"> | Date | string
+    updatedAt?: DateTimeFilter<"Form"> | Date | string
+    createdById?: StringFilter<"Form"> | string
   }
 
   export type UserCreateWithoutSessionsInput = {
@@ -8525,7 +8941,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
-    posts?: PostCreateNestedManyWithoutCreatedByInput
+    forms?: FormCreateNestedManyWithoutCreatedByInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
@@ -8537,7 +8953,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    posts?: PostUncheckedCreateNestedManyWithoutCreatedByInput
+    forms?: FormUncheckedCreateNestedManyWithoutCreatedByInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -8565,7 +8981,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
-    posts?: PostUpdateManyWithoutCreatedByNestedInput
+    forms?: FormUpdateManyWithoutCreatedByNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -8577,7 +8993,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    posts?: PostUncheckedUpdateManyWithoutCreatedByNestedInput
+    forms?: FormUncheckedUpdateManyWithoutCreatedByNestedInput
   }
 
   export type UserCreateWithoutAccountsInput = {
@@ -8589,7 +9005,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
-    posts?: PostCreateNestedManyWithoutCreatedByInput
+    forms?: FormCreateNestedManyWithoutCreatedByInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
@@ -8601,7 +9017,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    posts?: PostUncheckedCreateNestedManyWithoutCreatedByInput
+    forms?: FormUncheckedCreateNestedManyWithoutCreatedByInput
   }
 
   export type UserCreateOrConnectWithoutAccountsInput = {
@@ -8629,7 +9045,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
-    posts?: PostUpdateManyWithoutCreatedByNestedInput
+    forms?: FormUpdateManyWithoutCreatedByNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -8641,7 +9057,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    posts?: PostUncheckedUpdateManyWithoutCreatedByNestedInput
+    forms?: FormUncheckedUpdateManyWithoutCreatedByNestedInput
   }
 
   export type SessionCreateManyUserInput = {
@@ -8669,9 +9085,22 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type PostCreateManyCreatedByInput = {
+  export type FormCreateManyCreatedByInput = {
     id?: string
-    name: string
+    name?: string
+    description?: string | null
+    stared?: boolean
+    published?: boolean
+    publishedAt?: Date | string | null
+    requireAuth?: boolean
+    sendResponseEmail?: boolean
+    allowResponseEditing?: boolean
+    limitOneResponse?: boolean
+    allQuestionsRequired?: boolean
+    showProgressBar?: boolean
+    shuffleQuestionOrder?: boolean
+    confirmationMessage?: string
+    showLinkFormAnotherResponse?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -8751,23 +9180,62 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PostUpdateWithoutCreatedByInput = {
+  export type FormUpdateWithoutCreatedByInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    stared?: BoolFieldUpdateOperationsInput | boolean
+    published?: BoolFieldUpdateOperationsInput | boolean
+    publishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    requireAuth?: BoolFieldUpdateOperationsInput | boolean
+    sendResponseEmail?: BoolFieldUpdateOperationsInput | boolean
+    allowResponseEditing?: BoolFieldUpdateOperationsInput | boolean
+    limitOneResponse?: BoolFieldUpdateOperationsInput | boolean
+    allQuestionsRequired?: BoolFieldUpdateOperationsInput | boolean
+    showProgressBar?: BoolFieldUpdateOperationsInput | boolean
+    shuffleQuestionOrder?: BoolFieldUpdateOperationsInput | boolean
+    confirmationMessage?: StringFieldUpdateOperationsInput | string
+    showLinkFormAnotherResponse?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PostUncheckedUpdateWithoutCreatedByInput = {
+  export type FormUncheckedUpdateWithoutCreatedByInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    stared?: BoolFieldUpdateOperationsInput | boolean
+    published?: BoolFieldUpdateOperationsInput | boolean
+    publishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    requireAuth?: BoolFieldUpdateOperationsInput | boolean
+    sendResponseEmail?: BoolFieldUpdateOperationsInput | boolean
+    allowResponseEditing?: BoolFieldUpdateOperationsInput | boolean
+    limitOneResponse?: BoolFieldUpdateOperationsInput | boolean
+    allQuestionsRequired?: BoolFieldUpdateOperationsInput | boolean
+    showProgressBar?: BoolFieldUpdateOperationsInput | boolean
+    shuffleQuestionOrder?: BoolFieldUpdateOperationsInput | boolean
+    confirmationMessage?: StringFieldUpdateOperationsInput | string
+    showLinkFormAnotherResponse?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PostUncheckedUpdateManyWithoutCreatedByInput = {
+  export type FormUncheckedUpdateManyWithoutCreatedByInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    stared?: BoolFieldUpdateOperationsInput | boolean
+    published?: BoolFieldUpdateOperationsInput | boolean
+    publishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    requireAuth?: BoolFieldUpdateOperationsInput | boolean
+    sendResponseEmail?: BoolFieldUpdateOperationsInput | boolean
+    allowResponseEditing?: BoolFieldUpdateOperationsInput | boolean
+    limitOneResponse?: BoolFieldUpdateOperationsInput | boolean
+    allQuestionsRequired?: BoolFieldUpdateOperationsInput | boolean
+    showProgressBar?: BoolFieldUpdateOperationsInput | boolean
+    shuffleQuestionOrder?: BoolFieldUpdateOperationsInput | boolean
+    confirmationMessage?: StringFieldUpdateOperationsInput | string
+    showLinkFormAnotherResponse?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
