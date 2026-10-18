@@ -64,4 +64,25 @@ export const formRouter = createTRPCRouter({
 
       return res;
     }),
+
+  starForm: protectedProcedure
+    .input(
+      z.object({
+        id: z.string(),
+        state: z.boolean()
+      }),
+    )
+    .mutation(async ({ ctx, input }) => {
+      const res = await ctx.db.form.update({
+        data: {
+          stared: input.state
+        },
+        where: {
+          id: input.id,
+          createdById: ctx.session.user.id,
+        },
+      });
+
+      return res;
+    }),
 });

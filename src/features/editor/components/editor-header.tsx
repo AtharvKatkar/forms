@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import UserButton from "@/features/auth/components/user-button";
 import RenameForm from "./rename-form";
 import EditorNavigation from "./editor-navigation";
+import StarFormButton from "./star-form-button";
 
 function EditorHeader() {
 
@@ -53,9 +54,10 @@ function EditorHeader() {
           {/* Top left */}
           <div className="flex items-center gap-3">
             <Link href="/">
-              <Image src="/logo.svg" height={36} width={36} alt="Forms" />
+              <Image src="/logo.svg" height={32} width={32} alt="Forms" />
             </Link>
             <RenameForm />
+            <StarFormButton />
           </div>
           {/* Top right */}
           <div className="flex items-center gap-0.5">

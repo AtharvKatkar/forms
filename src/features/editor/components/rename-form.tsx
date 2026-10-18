@@ -26,7 +26,7 @@ function RenameForm() {
       disabled={formApi.isPending || renameApi.isPending}
       defaultValue={formApi.data?.name}
       placeholder="Untitled form"
-      className="focus:border-b-primary font-heading border-b-2 border-b-transparent text-lg focus:outline-0"
+      className="focus:border-b-primary font-heading border-b-2 border-b-transparent text-lg focus:outline-0 w-fit"
       onBlur={async (e) => {
         const value = e.target.value;
 
