@@ -36,14 +36,14 @@ function StarFormButton() {
 
         await updateApi.mutateAsync({
           id: params.form as string,
-          state: !formApi.data!.stared,
+          state: !formApi.data!.starred,
         });
       }}
     >
       {formApi.isPending || updateApi.isPending ? (
         <Spinner />
       ) : (
-        <StarIcon className={cn(formApi.data?.stared  ? "text-yellow-500 fill-yellow-500" : "fill-transparent text-foreground")} />
+        <StarIcon className={cn(formApi.data?.starred  ? "text-yellow-500 fill-yellow-500" : "fill-transparent text-foreground")} />
       )}
     </Button>
   );

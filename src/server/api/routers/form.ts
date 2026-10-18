@@ -75,7 +75,7 @@ export const formRouter = createTRPCRouter({
     .mutation(async ({ ctx, input }) => {
       const res = await ctx.db.form.update({
         data: {
-          stared: input.state,
+          starred: input.state,
         },
         where: {
           id: input.id,
@@ -92,7 +92,7 @@ export const formRouter = createTRPCRouter({
         id: z.string(),
         name: z.string(),
         description: z.string().optional(),
-        stared: z.coerce.boolean().optional(),
+        starred: z.coerce.boolean().optional(),
         published: z.coerce.boolean().optional(),
         publishedAt: z.coerce.date().optional(),
         requireAuth: z.coerce.boolean().optional(),
