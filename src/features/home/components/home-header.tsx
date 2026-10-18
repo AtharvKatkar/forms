@@ -13,11 +13,11 @@ import UserButton from "@/features/auth/components/user-button";
 function HomeHeader() {
   return (
     <header className="bg-background h-16 shadow">
-      <nav className="container mx-auto grid h-full grid-cols-2 place-items-center md:grid-cols-3">
+      <nav className="container mx-auto grid h-full grid-cols-2 place-items-center md:grid-cols-3 px-3">
         <Link href="/" className="w-full">
           <Image src="/logo-text.svg" alt="Forms" height={48} width={128} />
         </Link>
-        <InputGroup>
+        <InputGroup className="hidden md:flex">
           <InputGroupAddon>
             <SearchIcon />
           </InputGroupAddon>
