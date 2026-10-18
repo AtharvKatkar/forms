@@ -1,3 +1,5 @@
+import z from "zod";
+
 import { createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
 
 export const formRouter = createTRPCRouter({
@@ -20,4 +22,46 @@ export const formRouter = createTRPCRouter({
 
     return res;
   }),
+
+  getOne: protectedProcedure
+    .input(z.object({ id: z.string() }))
+    .query(async ({ ctx, input }) => {
+      const res = await ctx.db.form.findUnique({
+        where: {
+          id: input.id,
+          OR: [
+            {
+              createdById: ctx.session.user.id,
+              published: false,
+            },
+            {
+              published: true,
+            },
+          ],
+        },
+      });
+
+      return res;
+    }),
+
+  renameForm: protectedProcedure
+    .input(
+      z.object({
+        id: z.string(),
+        name: z.string(),
+      }),
+    )
+    .mutation(async ({ ctx, input }) => {
+      const res = await ctx.db.form.update({
+        data: {
+          name: input.name,
+        },
+        where: {
+          id: input.id,
+          createdById: ctx.session.user.id,
+        },
+      });
+
+      return res;
+    }),
 });
