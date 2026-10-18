@@ -1,22 +1,12 @@
-"use client";
-
 import React from "react";
-import { useParams } from "next/navigation";
 
-import { api } from "@/trpc/react";
+import FormTitleCard from "@/features/editor/components/form-title-card";
 
 function EditFormPage() {
-  const params = useParams();
-
-  const formApi = api.form.getOne.useQuery({
-    id: params.form as string,
-  });
-
   return (
-    <div>
-      <pre>
-        <code>{JSON.stringify(formApi.data, null, 2)}</code>
-      </pre>
+    <div className="flex flex-col items-center gap-3 py-6">
+      {/* Title card */}
+      <FormTitleCard />
     </div>
   );
 }
