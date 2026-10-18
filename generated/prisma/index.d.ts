@@ -1472,16 +1472,12 @@ export namespace Prisma {
     sessions: number
     accounts: number
     forms: number
-    questions: number
-    options: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sessions?: boolean | UserCountOutputTypeCountSessionsArgs
     accounts?: boolean | UserCountOutputTypeCountAccountsArgs
     forms?: boolean | UserCountOutputTypeCountFormsArgs
-    questions?: boolean | UserCountOutputTypeCountQuestionsArgs
-    options?: boolean | UserCountOutputTypeCountOptionsArgs
   }
 
   // Custom InputTypes
@@ -1514,20 +1510,6 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountFormsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: FormWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountQuestionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: QuestionWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountOptionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: OptionWhereInput
   }
 
 
@@ -2809,7 +2791,6 @@ export namespace Prisma {
     createdAt: Date | null
     updatedAt: Date | null
     formId: string | null
-    userId: string | null
   }
 
   export type QuestionMaxAggregateOutputType = {
@@ -2824,7 +2805,6 @@ export namespace Prisma {
     createdAt: Date | null
     updatedAt: Date | null
     formId: string | null
-    userId: string | null
   }
 
   export type QuestionCountAggregateOutputType = {
@@ -2839,7 +2819,6 @@ export namespace Prisma {
     createdAt: number
     updatedAt: number
     formId: number
-    userId: number
     _all: number
   }
 
@@ -2864,7 +2843,6 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     formId?: true
-    userId?: true
   }
 
   export type QuestionMaxAggregateInputType = {
@@ -2879,7 +2857,6 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     formId?: true
-    userId?: true
   }
 
   export type QuestionCountAggregateInputType = {
@@ -2894,7 +2871,6 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     formId?: true
-    userId?: true
     _all?: true
   }
 
@@ -2996,7 +2972,6 @@ export namespace Prisma {
     createdAt: Date
     updatedAt: Date
     formId: string
-    userId: string | null
     _count: QuestionCountAggregateOutputType | null
     _avg: QuestionAvgAggregateOutputType | null
     _sum: QuestionSumAggregateOutputType | null
@@ -3030,10 +3005,8 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     formId?: boolean
-    userId?: boolean
     form?: boolean | FormDefaultArgs<ExtArgs>
     options?: boolean | Question$optionsArgs<ExtArgs>
-    user?: boolean | Question$userArgs<ExtArgs>
     _count?: boolean | QuestionCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["question"]>
 
@@ -3049,9 +3022,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     formId?: boolean
-    userId?: boolean
     form?: boolean | FormDefaultArgs<ExtArgs>
-    user?: boolean | Question$userArgs<ExtArgs>
   }, ExtArgs["result"]["question"]>
 
   export type QuestionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -3066,9 +3037,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     formId?: boolean
-    userId?: boolean
     form?: boolean | FormDefaultArgs<ExtArgs>
-    user?: boolean | Question$userArgs<ExtArgs>
   }, ExtArgs["result"]["question"]>
 
   export type QuestionSelectScalar = {
@@ -3083,23 +3052,19 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     formId?: boolean
-    userId?: boolean
   }
 
-  export type QuestionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "inlineImage" | "type" | "order" | "required" | "shuffleOptionOrder" | "createdAt" | "updatedAt" | "formId" | "userId", ExtArgs["result"]["question"]>
+  export type QuestionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "inlineImage" | "type" | "order" | "required" | "shuffleOptionOrder" | "createdAt" | "updatedAt" | "formId", ExtArgs["result"]["question"]>
   export type QuestionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     form?: boolean | FormDefaultArgs<ExtArgs>
     options?: boolean | Question$optionsArgs<ExtArgs>
-    user?: boolean | Question$userArgs<ExtArgs>
     _count?: boolean | QuestionCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type QuestionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     form?: boolean | FormDefaultArgs<ExtArgs>
-    user?: boolean | Question$userArgs<ExtArgs>
   }
   export type QuestionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     form?: boolean | FormDefaultArgs<ExtArgs>
-    user?: boolean | Question$userArgs<ExtArgs>
   }
 
   export type $QuestionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3107,7 +3072,6 @@ export namespace Prisma {
     objects: {
       form: Prisma.$FormPayload<ExtArgs>
       options: Prisma.$OptionPayload<ExtArgs>[]
-      user: Prisma.$UserPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -3121,7 +3085,6 @@ export namespace Prisma {
       createdAt: Date
       updatedAt: Date
       formId: string
-      userId: string | null
     }, ExtArgs["result"]["question"]>
     composites: {}
   }
@@ -3518,7 +3481,6 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     form<T extends FormDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FormDefaultArgs<ExtArgs>>): Prisma__FormClient<$Result.GetResult<Prisma.$FormPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     options<T extends Question$optionsArgs<ExtArgs> = {}>(args?: Subset<T, Question$optionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    user<T extends Question$userArgs<ExtArgs> = {}>(args?: Subset<T, Question$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3559,7 +3521,6 @@ export namespace Prisma {
     readonly createdAt: FieldRef<"Question", 'DateTime'>
     readonly updatedAt: FieldRef<"Question", 'DateTime'>
     readonly formId: FieldRef<"Question", 'String'>
-    readonly userId: FieldRef<"Question", 'String'>
   }
     
 
@@ -3978,25 +3939,6 @@ export namespace Prisma {
   }
 
   /**
-   * Question.user
-   */
-  export type Question$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the User
-     */
-    select?: UserSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the User
-     */
-    omit?: UserOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UserInclude<ExtArgs> | null
-    where?: UserWhereInput
-  }
-
-  /**
    * Question without action
    */
   export type QuestionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4040,7 +3982,6 @@ export namespace Prisma {
     name: string | null
     order: number | null
     questionId: string | null
-    userId: string | null
   }
 
   export type OptionMaxAggregateOutputType = {
@@ -4048,7 +3989,6 @@ export namespace Prisma {
     name: string | null
     order: number | null
     questionId: string | null
-    userId: string | null
   }
 
   export type OptionCountAggregateOutputType = {
@@ -4056,7 +3996,6 @@ export namespace Prisma {
     name: number
     order: number
     questionId: number
-    userId: number
     _all: number
   }
 
@@ -4074,7 +4013,6 @@ export namespace Prisma {
     name?: true
     order?: true
     questionId?: true
-    userId?: true
   }
 
   export type OptionMaxAggregateInputType = {
@@ -4082,7 +4020,6 @@ export namespace Prisma {
     name?: true
     order?: true
     questionId?: true
-    userId?: true
   }
 
   export type OptionCountAggregateInputType = {
@@ -4090,7 +4027,6 @@ export namespace Prisma {
     name?: true
     order?: true
     questionId?: true
-    userId?: true
     _all?: true
   }
 
@@ -4185,7 +4121,6 @@ export namespace Prisma {
     name: string
     order: number
     questionId: string
-    userId: string | null
     _count: OptionCountAggregateOutputType | null
     _avg: OptionAvgAggregateOutputType | null
     _sum: OptionSumAggregateOutputType | null
@@ -4212,9 +4147,7 @@ export namespace Prisma {
     name?: boolean
     order?: boolean
     questionId?: boolean
-    userId?: boolean
     question?: boolean | QuestionDefaultArgs<ExtArgs>
-    user?: boolean | Option$userArgs<ExtArgs>
   }, ExtArgs["result"]["option"]>
 
   export type OptionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -4222,9 +4155,7 @@ export namespace Prisma {
     name?: boolean
     order?: boolean
     questionId?: boolean
-    userId?: boolean
     question?: boolean | QuestionDefaultArgs<ExtArgs>
-    user?: boolean | Option$userArgs<ExtArgs>
   }, ExtArgs["result"]["option"]>
 
   export type OptionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -4232,9 +4163,7 @@ export namespace Prisma {
     name?: boolean
     order?: boolean
     questionId?: boolean
-    userId?: boolean
     question?: boolean | QuestionDefaultArgs<ExtArgs>
-    user?: boolean | Option$userArgs<ExtArgs>
   }, ExtArgs["result"]["option"]>
 
   export type OptionSelectScalar = {
@@ -4242,35 +4171,29 @@ export namespace Prisma {
     name?: boolean
     order?: boolean
     questionId?: boolean
-    userId?: boolean
   }
 
-  export type OptionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "order" | "questionId" | "userId", ExtArgs["result"]["option"]>
+  export type OptionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "order" | "questionId", ExtArgs["result"]["option"]>
   export type OptionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     question?: boolean | QuestionDefaultArgs<ExtArgs>
-    user?: boolean | Option$userArgs<ExtArgs>
   }
   export type OptionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     question?: boolean | QuestionDefaultArgs<ExtArgs>
-    user?: boolean | Option$userArgs<ExtArgs>
   }
   export type OptionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     question?: boolean | QuestionDefaultArgs<ExtArgs>
-    user?: boolean | Option$userArgs<ExtArgs>
   }
 
   export type $OptionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Option"
     objects: {
       question: Prisma.$QuestionPayload<ExtArgs>
-      user: Prisma.$UserPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
       order: number
       questionId: string
-      userId: string | null
     }, ExtArgs["result"]["option"]>
     composites: {}
   }
@@ -4666,7 +4589,6 @@ export namespace Prisma {
   export interface Prisma__OptionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     question<T extends QuestionDefaultArgs<ExtArgs> = {}>(args?: Subset<T, QuestionDefaultArgs<ExtArgs>>): Prisma__QuestionClient<$Result.GetResult<Prisma.$QuestionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    user<T extends Option$userArgs<ExtArgs> = {}>(args?: Subset<T, Option$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4700,7 +4622,6 @@ export namespace Prisma {
     readonly name: FieldRef<"Option", 'String'>
     readonly order: FieldRef<"Option", 'Int'>
     readonly questionId: FieldRef<"Option", 'String'>
-    readonly userId: FieldRef<"Option", 'String'>
   }
     
 
@@ -5095,25 +5016,6 @@ export namespace Prisma {
   }
 
   /**
-   * Option.user
-   */
-  export type Option$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the User
-     */
-    select?: UserSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the User
-     */
-    omit?: UserOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UserInclude<ExtArgs> | null
-    where?: UserWhereInput
-  }
-
-  /**
    * Option without action
    */
   export type OptionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5315,8 +5217,6 @@ export namespace Prisma {
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     accounts?: boolean | User$accountsArgs<ExtArgs>
     forms?: boolean | User$formsArgs<ExtArgs>
-    questions?: boolean | User$questionsArgs<ExtArgs>
-    options?: boolean | User$optionsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -5355,8 +5255,6 @@ export namespace Prisma {
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     accounts?: boolean | User$accountsArgs<ExtArgs>
     forms?: boolean | User$formsArgs<ExtArgs>
-    questions?: boolean | User$questionsArgs<ExtArgs>
-    options?: boolean | User$optionsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -5368,8 +5266,6 @@ export namespace Prisma {
       sessions: Prisma.$SessionPayload<ExtArgs>[]
       accounts: Prisma.$AccountPayload<ExtArgs>[]
       forms: Prisma.$FormPayload<ExtArgs>[]
-      questions: Prisma.$QuestionPayload<ExtArgs>[]
-      options: Prisma.$OptionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -5776,8 +5672,6 @@ export namespace Prisma {
     sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     accounts<T extends User$accountsArgs<ExtArgs> = {}>(args?: Subset<T, User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     forms<T extends User$formsArgs<ExtArgs> = {}>(args?: Subset<T, User$formsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FormPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    questions<T extends User$questionsArgs<ExtArgs> = {}>(args?: Subset<T, User$questionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$QuestionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    options<T extends User$optionsArgs<ExtArgs> = {}>(args?: Subset<T, User$optionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6269,54 +6163,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: FormScalarFieldEnum | FormScalarFieldEnum[]
-  }
-
-  /**
-   * User.questions
-   */
-  export type User$questionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Question
-     */
-    select?: QuestionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Question
-     */
-    omit?: QuestionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: QuestionInclude<ExtArgs> | null
-    where?: QuestionWhereInput
-    orderBy?: QuestionOrderByWithRelationInput | QuestionOrderByWithRelationInput[]
-    cursor?: QuestionWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: QuestionScalarFieldEnum | QuestionScalarFieldEnum[]
-  }
-
-  /**
-   * User.options
-   */
-  export type User$optionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Option
-     */
-    select?: OptionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Option
-     */
-    omit?: OptionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OptionInclude<ExtArgs> | null
-    where?: OptionWhereInput
-    orderBy?: OptionOrderByWithRelationInput | OptionOrderByWithRelationInput[]
-    cursor?: OptionWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: OptionScalarFieldEnum | OptionScalarFieldEnum[]
   }
 
   /**
@@ -9644,8 +9490,7 @@ export namespace Prisma {
     shuffleOptionOrder: 'shuffleOptionOrder',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
-    formId: 'formId',
-    userId: 'userId'
+    formId: 'formId'
   };
 
   export type QuestionScalarFieldEnum = (typeof QuestionScalarFieldEnum)[keyof typeof QuestionScalarFieldEnum]
@@ -9655,8 +9500,7 @@ export namespace Prisma {
     id: 'id',
     name: 'name',
     order: 'order',
-    questionId: 'questionId',
-    userId: 'userId'
+    questionId: 'questionId'
   };
 
   export type OptionScalarFieldEnum = (typeof OptionScalarFieldEnum)[keyof typeof OptionScalarFieldEnum]
@@ -9912,10 +9756,8 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Question"> | Date | string
     updatedAt?: DateTimeFilter<"Question"> | Date | string
     formId?: StringFilter<"Question"> | string
-    userId?: StringNullableFilter<"Question"> | string | null
     form?: XOR<FormScalarRelationFilter, FormWhereInput>
     options?: OptionListRelationFilter
-    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }
 
   export type QuestionOrderByWithRelationInput = {
@@ -9930,10 +9772,8 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     formId?: SortOrder
-    userId?: SortOrderInput | SortOrder
     form?: FormOrderByWithRelationInput
     options?: OptionOrderByRelationAggregateInput
-    user?: UserOrderByWithRelationInput
   }
 
   export type QuestionWhereUniqueInput = Prisma.AtLeast<{
@@ -9952,10 +9792,8 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Question"> | Date | string
     updatedAt?: DateTimeFilter<"Question"> | Date | string
     formId?: StringFilter<"Question"> | string
-    userId?: StringNullableFilter<"Question"> | string | null
     form?: XOR<FormScalarRelationFilter, FormWhereInput>
     options?: OptionListRelationFilter
-    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }, "id" | "formId_order">
 
   export type QuestionOrderByWithAggregationInput = {
@@ -9970,7 +9808,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     formId?: SortOrder
-    userId?: SortOrderInput | SortOrder
     _count?: QuestionCountOrderByAggregateInput
     _avg?: QuestionAvgOrderByAggregateInput
     _max?: QuestionMaxOrderByAggregateInput
@@ -9993,7 +9830,6 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"Question"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Question"> | Date | string
     formId?: StringWithAggregatesFilter<"Question"> | string
-    userId?: StringNullableWithAggregatesFilter<"Question"> | string | null
   }
 
   export type OptionWhereInput = {
@@ -10004,9 +9840,7 @@ export namespace Prisma {
     name?: StringFilter<"Option"> | string
     order?: IntFilter<"Option"> | number
     questionId?: StringFilter<"Option"> | string
-    userId?: StringNullableFilter<"Option"> | string | null
     question?: XOR<QuestionScalarRelationFilter, QuestionWhereInput>
-    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }
 
   export type OptionOrderByWithRelationInput = {
@@ -10014,9 +9848,7 @@ export namespace Prisma {
     name?: SortOrder
     order?: SortOrder
     questionId?: SortOrder
-    userId?: SortOrderInput | SortOrder
     question?: QuestionOrderByWithRelationInput
-    user?: UserOrderByWithRelationInput
   }
 
   export type OptionWhereUniqueInput = Prisma.AtLeast<{
@@ -10028,9 +9860,7 @@ export namespace Prisma {
     name?: StringFilter<"Option"> | string
     order?: IntFilter<"Option"> | number
     questionId?: StringFilter<"Option"> | string
-    userId?: StringNullableFilter<"Option"> | string | null
     question?: XOR<QuestionScalarRelationFilter, QuestionWhereInput>
-    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }, "id" | "questionId_order">
 
   export type OptionOrderByWithAggregationInput = {
@@ -10038,7 +9868,6 @@ export namespace Prisma {
     name?: SortOrder
     order?: SortOrder
     questionId?: SortOrder
-    userId?: SortOrderInput | SortOrder
     _count?: OptionCountOrderByAggregateInput
     _avg?: OptionAvgOrderByAggregateInput
     _max?: OptionMaxOrderByAggregateInput
@@ -10054,7 +9883,6 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Option"> | string
     order?: IntWithAggregatesFilter<"Option"> | number
     questionId?: StringWithAggregatesFilter<"Option"> | string
-    userId?: StringNullableWithAggregatesFilter<"Option"> | string | null
   }
 
   export type UserWhereInput = {
@@ -10071,8 +9899,6 @@ export namespace Prisma {
     sessions?: SessionListRelationFilter
     accounts?: AccountListRelationFilter
     forms?: FormListRelationFilter
-    questions?: QuestionListRelationFilter
-    options?: OptionListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -10086,8 +9912,6 @@ export namespace Prisma {
     sessions?: SessionOrderByRelationAggregateInput
     accounts?: AccountOrderByRelationAggregateInput
     forms?: FormOrderByRelationAggregateInput
-    questions?: QuestionOrderByRelationAggregateInput
-    options?: OptionOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -10104,8 +9928,6 @@ export namespace Prisma {
     sessions?: SessionListRelationFilter
     accounts?: AccountListRelationFilter
     forms?: FormListRelationFilter
-    questions?: QuestionListRelationFilter
-    options?: OptionListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -10512,7 +10334,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     form: FormCreateNestedOneWithoutQuestionsInput
     options?: OptionCreateNestedManyWithoutQuestionInput
-    user?: UserCreateNestedOneWithoutQuestionsInput
   }
 
   export type QuestionUncheckedCreateInput = {
@@ -10527,7 +10348,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     formId: string
-    userId?: string | null
     options?: OptionUncheckedCreateNestedManyWithoutQuestionInput
   }
 
@@ -10544,7 +10364,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     form?: FormUpdateOneRequiredWithoutQuestionsNestedInput
     options?: OptionUpdateManyWithoutQuestionNestedInput
-    user?: UserUpdateOneWithoutQuestionsNestedInput
   }
 
   export type QuestionUncheckedUpdateInput = {
@@ -10559,7 +10378,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     formId?: StringFieldUpdateOperationsInput | string
-    userId?: NullableStringFieldUpdateOperationsInput | string | null
     options?: OptionUncheckedUpdateManyWithoutQuestionNestedInput
   }
 
@@ -10575,7 +10393,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     formId: string
-    userId?: string | null
   }
 
   export type QuestionUpdateManyMutationInput = {
@@ -10603,7 +10420,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     formId?: StringFieldUpdateOperationsInput | string
-    userId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type OptionCreateInput = {
@@ -10611,7 +10427,6 @@ export namespace Prisma {
     name: string
     order: number
     question: QuestionCreateNestedOneWithoutOptionsInput
-    user?: UserCreateNestedOneWithoutOptionsInput
   }
 
   export type OptionUncheckedCreateInput = {
@@ -10619,7 +10434,6 @@ export namespace Prisma {
     name: string
     order: number
     questionId: string
-    userId?: string | null
   }
 
   export type OptionUpdateInput = {
@@ -10627,7 +10441,6 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     order?: IntFieldUpdateOperationsInput | number
     question?: QuestionUpdateOneRequiredWithoutOptionsNestedInput
-    user?: UserUpdateOneWithoutOptionsNestedInput
   }
 
   export type OptionUncheckedUpdateInput = {
@@ -10635,7 +10448,6 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     order?: IntFieldUpdateOperationsInput | number
     questionId?: StringFieldUpdateOperationsInput | string
-    userId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type OptionCreateManyInput = {
@@ -10643,7 +10455,6 @@ export namespace Prisma {
     name: string
     order: number
     questionId: string
-    userId?: string | null
   }
 
   export type OptionUpdateManyMutationInput = {
@@ -10657,7 +10468,6 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     order?: IntFieldUpdateOperationsInput | number
     questionId?: StringFieldUpdateOperationsInput | string
-    userId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserCreateInput = {
@@ -10671,8 +10481,6 @@ export namespace Prisma {
     sessions?: SessionCreateNestedManyWithoutUserInput
     accounts?: AccountCreateNestedManyWithoutUserInput
     forms?: FormCreateNestedManyWithoutCreatedByInput
-    questions?: QuestionCreateNestedManyWithoutUserInput
-    options?: OptionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -10686,8 +10494,6 @@ export namespace Prisma {
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     forms?: FormUncheckedCreateNestedManyWithoutCreatedByInput
-    questions?: QuestionUncheckedCreateNestedManyWithoutUserInput
-    options?: OptionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -10701,8 +10507,6 @@ export namespace Prisma {
     sessions?: SessionUpdateManyWithoutUserNestedInput
     accounts?: AccountUpdateManyWithoutUserNestedInput
     forms?: FormUpdateManyWithoutCreatedByNestedInput
-    questions?: QuestionUpdateManyWithoutUserNestedInput
-    options?: OptionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -10716,8 +10520,6 @@ export namespace Prisma {
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     forms?: FormUncheckedUpdateManyWithoutCreatedByNestedInput
-    questions?: QuestionUncheckedUpdateManyWithoutUserNestedInput
-    options?: OptionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -11227,11 +11029,6 @@ export namespace Prisma {
     none?: OptionWhereInput
   }
 
-  export type UserNullableScalarRelationFilter = {
-    is?: UserWhereInput | null
-    isNot?: UserWhereInput | null
-  }
-
   export type OptionOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -11253,7 +11050,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     formId?: SortOrder
-    userId?: SortOrder
   }
 
   export type QuestionAvgOrderByAggregateInput = {
@@ -11272,7 +11068,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     formId?: SortOrder
-    userId?: SortOrder
   }
 
   export type QuestionMinOrderByAggregateInput = {
@@ -11287,7 +11082,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     formId?: SortOrder
-    userId?: SortOrder
   }
 
   export type QuestionSumOrderByAggregateInput = {
@@ -11325,7 +11119,6 @@ export namespace Prisma {
     name?: SortOrder
     order?: SortOrder
     questionId?: SortOrder
-    userId?: SortOrder
   }
 
   export type OptionAvgOrderByAggregateInput = {
@@ -11337,7 +11130,6 @@ export namespace Prisma {
     name?: SortOrder
     order?: SortOrder
     questionId?: SortOrder
-    userId?: SortOrder
   }
 
   export type OptionMinOrderByAggregateInput = {
@@ -11345,7 +11137,6 @@ export namespace Prisma {
     name?: SortOrder
     order?: SortOrder
     questionId?: SortOrder
-    userId?: SortOrder
   }
 
   export type OptionSumOrderByAggregateInput = {
@@ -11609,12 +11400,6 @@ export namespace Prisma {
     connect?: OptionWhereUniqueInput | OptionWhereUniqueInput[]
   }
 
-  export type UserCreateNestedOneWithoutQuestionsInput = {
-    create?: XOR<UserCreateWithoutQuestionsInput, UserUncheckedCreateWithoutQuestionsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutQuestionsInput
-    connect?: UserWhereUniqueInput
-  }
-
   export type OptionUncheckedCreateNestedManyWithoutQuestionInput = {
     create?: XOR<OptionCreateWithoutQuestionInput, OptionUncheckedCreateWithoutQuestionInput> | OptionCreateWithoutQuestionInput[] | OptionUncheckedCreateWithoutQuestionInput[]
     connectOrCreate?: OptionCreateOrConnectWithoutQuestionInput | OptionCreateOrConnectWithoutQuestionInput[]
@@ -11652,16 +11437,6 @@ export namespace Prisma {
     deleteMany?: OptionScalarWhereInput | OptionScalarWhereInput[]
   }
 
-  export type UserUpdateOneWithoutQuestionsNestedInput = {
-    create?: XOR<UserCreateWithoutQuestionsInput, UserUncheckedCreateWithoutQuestionsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutQuestionsInput
-    upsert?: UserUpsertWithoutQuestionsInput
-    disconnect?: UserWhereInput | boolean
-    delete?: UserWhereInput | boolean
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutQuestionsInput, UserUpdateWithoutQuestionsInput>, UserUncheckedUpdateWithoutQuestionsInput>
-  }
-
   export type OptionUncheckedUpdateManyWithoutQuestionNestedInput = {
     create?: XOR<OptionCreateWithoutQuestionInput, OptionUncheckedCreateWithoutQuestionInput> | OptionCreateWithoutQuestionInput[] | OptionUncheckedCreateWithoutQuestionInput[]
     connectOrCreate?: OptionCreateOrConnectWithoutQuestionInput | OptionCreateOrConnectWithoutQuestionInput[]
@@ -11682,28 +11457,12 @@ export namespace Prisma {
     connect?: QuestionWhereUniqueInput
   }
 
-  export type UserCreateNestedOneWithoutOptionsInput = {
-    create?: XOR<UserCreateWithoutOptionsInput, UserUncheckedCreateWithoutOptionsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutOptionsInput
-    connect?: UserWhereUniqueInput
-  }
-
   export type QuestionUpdateOneRequiredWithoutOptionsNestedInput = {
     create?: XOR<QuestionCreateWithoutOptionsInput, QuestionUncheckedCreateWithoutOptionsInput>
     connectOrCreate?: QuestionCreateOrConnectWithoutOptionsInput
     upsert?: QuestionUpsertWithoutOptionsInput
     connect?: QuestionWhereUniqueInput
     update?: XOR<XOR<QuestionUpdateToOneWithWhereWithoutOptionsInput, QuestionUpdateWithoutOptionsInput>, QuestionUncheckedUpdateWithoutOptionsInput>
-  }
-
-  export type UserUpdateOneWithoutOptionsNestedInput = {
-    create?: XOR<UserCreateWithoutOptionsInput, UserUncheckedCreateWithoutOptionsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutOptionsInput
-    upsert?: UserUpsertWithoutOptionsInput
-    disconnect?: UserWhereInput | boolean
-    delete?: UserWhereInput | boolean
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutOptionsInput, UserUpdateWithoutOptionsInput>, UserUncheckedUpdateWithoutOptionsInput>
   }
 
   export type SessionCreateNestedManyWithoutUserInput = {
@@ -11727,20 +11486,6 @@ export namespace Prisma {
     connect?: FormWhereUniqueInput | FormWhereUniqueInput[]
   }
 
-  export type QuestionCreateNestedManyWithoutUserInput = {
-    create?: XOR<QuestionCreateWithoutUserInput, QuestionUncheckedCreateWithoutUserInput> | QuestionCreateWithoutUserInput[] | QuestionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: QuestionCreateOrConnectWithoutUserInput | QuestionCreateOrConnectWithoutUserInput[]
-    createMany?: QuestionCreateManyUserInputEnvelope
-    connect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
-  }
-
-  export type OptionCreateNestedManyWithoutUserInput = {
-    create?: XOR<OptionCreateWithoutUserInput, OptionUncheckedCreateWithoutUserInput> | OptionCreateWithoutUserInput[] | OptionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: OptionCreateOrConnectWithoutUserInput | OptionCreateOrConnectWithoutUserInput[]
-    createMany?: OptionCreateManyUserInputEnvelope
-    connect?: OptionWhereUniqueInput | OptionWhereUniqueInput[]
-  }
-
   export type SessionUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -11760,20 +11505,6 @@ export namespace Prisma {
     connectOrCreate?: FormCreateOrConnectWithoutCreatedByInput | FormCreateOrConnectWithoutCreatedByInput[]
     createMany?: FormCreateManyCreatedByInputEnvelope
     connect?: FormWhereUniqueInput | FormWhereUniqueInput[]
-  }
-
-  export type QuestionUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<QuestionCreateWithoutUserInput, QuestionUncheckedCreateWithoutUserInput> | QuestionCreateWithoutUserInput[] | QuestionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: QuestionCreateOrConnectWithoutUserInput | QuestionCreateOrConnectWithoutUserInput[]
-    createMany?: QuestionCreateManyUserInputEnvelope
-    connect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
-  }
-
-  export type OptionUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<OptionCreateWithoutUserInput, OptionUncheckedCreateWithoutUserInput> | OptionCreateWithoutUserInput[] | OptionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: OptionCreateOrConnectWithoutUserInput | OptionCreateOrConnectWithoutUserInput[]
-    createMany?: OptionCreateManyUserInputEnvelope
-    connect?: OptionWhereUniqueInput | OptionWhereUniqueInput[]
   }
 
   export type SessionUpdateManyWithoutUserNestedInput = {
@@ -11818,34 +11549,6 @@ export namespace Prisma {
     deleteMany?: FormScalarWhereInput | FormScalarWhereInput[]
   }
 
-  export type QuestionUpdateManyWithoutUserNestedInput = {
-    create?: XOR<QuestionCreateWithoutUserInput, QuestionUncheckedCreateWithoutUserInput> | QuestionCreateWithoutUserInput[] | QuestionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: QuestionCreateOrConnectWithoutUserInput | QuestionCreateOrConnectWithoutUserInput[]
-    upsert?: QuestionUpsertWithWhereUniqueWithoutUserInput | QuestionUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: QuestionCreateManyUserInputEnvelope
-    set?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
-    disconnect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
-    delete?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
-    connect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
-    update?: QuestionUpdateWithWhereUniqueWithoutUserInput | QuestionUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: QuestionUpdateManyWithWhereWithoutUserInput | QuestionUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: QuestionScalarWhereInput | QuestionScalarWhereInput[]
-  }
-
-  export type OptionUpdateManyWithoutUserNestedInput = {
-    create?: XOR<OptionCreateWithoutUserInput, OptionUncheckedCreateWithoutUserInput> | OptionCreateWithoutUserInput[] | OptionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: OptionCreateOrConnectWithoutUserInput | OptionCreateOrConnectWithoutUserInput[]
-    upsert?: OptionUpsertWithWhereUniqueWithoutUserInput | OptionUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: OptionCreateManyUserInputEnvelope
-    set?: OptionWhereUniqueInput | OptionWhereUniqueInput[]
-    disconnect?: OptionWhereUniqueInput | OptionWhereUniqueInput[]
-    delete?: OptionWhereUniqueInput | OptionWhereUniqueInput[]
-    connect?: OptionWhereUniqueInput | OptionWhereUniqueInput[]
-    update?: OptionUpdateWithWhereUniqueWithoutUserInput | OptionUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: OptionUpdateManyWithWhereWithoutUserInput | OptionUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: OptionScalarWhereInput | OptionScalarWhereInput[]
-  }
-
   export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -11886,34 +11589,6 @@ export namespace Prisma {
     update?: FormUpdateWithWhereUniqueWithoutCreatedByInput | FormUpdateWithWhereUniqueWithoutCreatedByInput[]
     updateMany?: FormUpdateManyWithWhereWithoutCreatedByInput | FormUpdateManyWithWhereWithoutCreatedByInput[]
     deleteMany?: FormScalarWhereInput | FormScalarWhereInput[]
-  }
-
-  export type QuestionUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<QuestionCreateWithoutUserInput, QuestionUncheckedCreateWithoutUserInput> | QuestionCreateWithoutUserInput[] | QuestionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: QuestionCreateOrConnectWithoutUserInput | QuestionCreateOrConnectWithoutUserInput[]
-    upsert?: QuestionUpsertWithWhereUniqueWithoutUserInput | QuestionUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: QuestionCreateManyUserInputEnvelope
-    set?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
-    disconnect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
-    delete?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
-    connect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
-    update?: QuestionUpdateWithWhereUniqueWithoutUserInput | QuestionUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: QuestionUpdateManyWithWhereWithoutUserInput | QuestionUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: QuestionScalarWhereInput | QuestionScalarWhereInput[]
-  }
-
-  export type OptionUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<OptionCreateWithoutUserInput, OptionUncheckedCreateWithoutUserInput> | OptionCreateWithoutUserInput[] | OptionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: OptionCreateOrConnectWithoutUserInput | OptionCreateOrConnectWithoutUserInput[]
-    upsert?: OptionUpsertWithWhereUniqueWithoutUserInput | OptionUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: OptionCreateManyUserInputEnvelope
-    set?: OptionWhereUniqueInput | OptionWhereUniqueInput[]
-    disconnect?: OptionWhereUniqueInput | OptionWhereUniqueInput[]
-    delete?: OptionWhereUniqueInput | OptionWhereUniqueInput[]
-    connect?: OptionWhereUniqueInput | OptionWhereUniqueInput[]
-    update?: OptionUpdateWithWhereUniqueWithoutUserInput | OptionUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: OptionUpdateManyWithWhereWithoutUserInput | OptionUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: OptionScalarWhereInput | OptionScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutSessionsInput = {
@@ -12128,8 +11803,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
     accounts?: AccountCreateNestedManyWithoutUserInput
-    questions?: QuestionCreateNestedManyWithoutUserInput
-    options?: OptionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutFormsInput = {
@@ -12142,8 +11815,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    questions?: QuestionUncheckedCreateNestedManyWithoutUserInput
-    options?: OptionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutFormsInput = {
@@ -12163,7 +11834,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     options?: OptionCreateNestedManyWithoutQuestionInput
-    user?: UserCreateNestedOneWithoutQuestionsInput
   }
 
   export type QuestionUncheckedCreateWithoutFormInput = {
@@ -12177,7 +11847,6 @@ export namespace Prisma {
     shuffleOptionOrder?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
-    userId?: string | null
     options?: OptionUncheckedCreateNestedManyWithoutQuestionInput
   }
 
@@ -12211,8 +11880,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
     accounts?: AccountUpdateManyWithoutUserNestedInput
-    questions?: QuestionUpdateManyWithoutUserNestedInput
-    options?: OptionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutFormsInput = {
@@ -12225,8 +11892,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    questions?: QuestionUncheckedUpdateManyWithoutUserNestedInput
-    options?: OptionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type QuestionUpsertWithWhereUniqueWithoutFormInput = {
@@ -12260,7 +11925,6 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Question"> | Date | string
     updatedAt?: DateTimeFilter<"Question"> | Date | string
     formId?: StringFilter<"Question"> | string
-    userId?: StringNullableFilter<"Question"> | string | null
   }
 
   export type FormCreateWithoutQuestionsInput = {
@@ -12312,14 +11976,12 @@ export namespace Prisma {
     id?: string
     name: string
     order: number
-    user?: UserCreateNestedOneWithoutOptionsInput
   }
 
   export type OptionUncheckedCreateWithoutQuestionInput = {
     id?: string
     name: string
     order: number
-    userId?: string | null
   }
 
   export type OptionCreateOrConnectWithoutQuestionInput = {
@@ -12329,39 +11991,6 @@ export namespace Prisma {
 
   export type OptionCreateManyQuestionInputEnvelope = {
     data: OptionCreateManyQuestionInput | OptionCreateManyQuestionInput[]
-  }
-
-  export type UserCreateWithoutQuestionsInput = {
-    id: string
-    name: string
-    email: string
-    emailVerified?: boolean
-    image?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    sessions?: SessionCreateNestedManyWithoutUserInput
-    accounts?: AccountCreateNestedManyWithoutUserInput
-    forms?: FormCreateNestedManyWithoutCreatedByInput
-    options?: OptionCreateNestedManyWithoutUserInput
-  }
-
-  export type UserUncheckedCreateWithoutQuestionsInput = {
-    id: string
-    name: string
-    email: string
-    emailVerified?: boolean
-    image?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    forms?: FormUncheckedCreateNestedManyWithoutCreatedByInput
-    options?: OptionUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type UserCreateOrConnectWithoutQuestionsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutQuestionsInput, UserUncheckedCreateWithoutQuestionsInput>
   }
 
   export type FormUpsertWithoutQuestionsInput = {
@@ -12439,46 +12068,6 @@ export namespace Prisma {
     name?: StringFilter<"Option"> | string
     order?: IntFilter<"Option"> | number
     questionId?: StringFilter<"Option"> | string
-    userId?: StringNullableFilter<"Option"> | string | null
-  }
-
-  export type UserUpsertWithoutQuestionsInput = {
-    update: XOR<UserUpdateWithoutQuestionsInput, UserUncheckedUpdateWithoutQuestionsInput>
-    create: XOR<UserCreateWithoutQuestionsInput, UserUncheckedCreateWithoutQuestionsInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutQuestionsInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutQuestionsInput, UserUncheckedUpdateWithoutQuestionsInput>
-  }
-
-  export type UserUpdateWithoutQuestionsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    emailVerified?: BoolFieldUpdateOperationsInput | boolean
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUpdateManyWithoutUserNestedInput
-    accounts?: AccountUpdateManyWithoutUserNestedInput
-    forms?: FormUpdateManyWithoutCreatedByNestedInput
-    options?: OptionUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutQuestionsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    emailVerified?: BoolFieldUpdateOperationsInput | boolean
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    forms?: FormUncheckedUpdateManyWithoutCreatedByNestedInput
-    options?: OptionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type QuestionCreateWithoutOptionsInput = {
@@ -12493,7 +12082,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     form: FormCreateNestedOneWithoutQuestionsInput
-    user?: UserCreateNestedOneWithoutQuestionsInput
   }
 
   export type QuestionUncheckedCreateWithoutOptionsInput = {
@@ -12508,45 +12096,11 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     formId: string
-    userId?: string | null
   }
 
   export type QuestionCreateOrConnectWithoutOptionsInput = {
     where: QuestionWhereUniqueInput
     create: XOR<QuestionCreateWithoutOptionsInput, QuestionUncheckedCreateWithoutOptionsInput>
-  }
-
-  export type UserCreateWithoutOptionsInput = {
-    id: string
-    name: string
-    email: string
-    emailVerified?: boolean
-    image?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    sessions?: SessionCreateNestedManyWithoutUserInput
-    accounts?: AccountCreateNestedManyWithoutUserInput
-    forms?: FormCreateNestedManyWithoutCreatedByInput
-    questions?: QuestionCreateNestedManyWithoutUserInput
-  }
-
-  export type UserUncheckedCreateWithoutOptionsInput = {
-    id: string
-    name: string
-    email: string
-    emailVerified?: boolean
-    image?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    forms?: FormUncheckedCreateNestedManyWithoutCreatedByInput
-    questions?: QuestionUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type UserCreateOrConnectWithoutOptionsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutOptionsInput, UserUncheckedCreateWithoutOptionsInput>
   }
 
   export type QuestionUpsertWithoutOptionsInput = {
@@ -12572,7 +12126,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     form?: FormUpdateOneRequiredWithoutQuestionsNestedInput
-    user?: UserUpdateOneWithoutQuestionsNestedInput
   }
 
   export type QuestionUncheckedUpdateWithoutOptionsInput = {
@@ -12587,46 +12140,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     formId?: StringFieldUpdateOperationsInput | string
-    userId?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type UserUpsertWithoutOptionsInput = {
-    update: XOR<UserUpdateWithoutOptionsInput, UserUncheckedUpdateWithoutOptionsInput>
-    create: XOR<UserCreateWithoutOptionsInput, UserUncheckedCreateWithoutOptionsInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutOptionsInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutOptionsInput, UserUncheckedUpdateWithoutOptionsInput>
-  }
-
-  export type UserUpdateWithoutOptionsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    emailVerified?: BoolFieldUpdateOperationsInput | boolean
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUpdateManyWithoutUserNestedInput
-    accounts?: AccountUpdateManyWithoutUserNestedInput
-    forms?: FormUpdateManyWithoutCreatedByNestedInput
-    questions?: QuestionUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutOptionsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    emailVerified?: BoolFieldUpdateOperationsInput | boolean
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    forms?: FormUncheckedUpdateManyWithoutCreatedByNestedInput
-    questions?: QuestionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type SessionCreateWithoutUserInput = {
@@ -12746,68 +12259,6 @@ export namespace Prisma {
     data: FormCreateManyCreatedByInput | FormCreateManyCreatedByInput[]
   }
 
-  export type QuestionCreateWithoutUserInput = {
-    id?: string
-    title?: string | null
-    description?: string | null
-    inlineImage?: string | null
-    type?: string
-    order: number
-    required?: boolean
-    shuffleOptionOrder?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    form: FormCreateNestedOneWithoutQuestionsInput
-    options?: OptionCreateNestedManyWithoutQuestionInput
-  }
-
-  export type QuestionUncheckedCreateWithoutUserInput = {
-    id?: string
-    title?: string | null
-    description?: string | null
-    inlineImage?: string | null
-    type?: string
-    order: number
-    required?: boolean
-    shuffleOptionOrder?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    formId: string
-    options?: OptionUncheckedCreateNestedManyWithoutQuestionInput
-  }
-
-  export type QuestionCreateOrConnectWithoutUserInput = {
-    where: QuestionWhereUniqueInput
-    create: XOR<QuestionCreateWithoutUserInput, QuestionUncheckedCreateWithoutUserInput>
-  }
-
-  export type QuestionCreateManyUserInputEnvelope = {
-    data: QuestionCreateManyUserInput | QuestionCreateManyUserInput[]
-  }
-
-  export type OptionCreateWithoutUserInput = {
-    id?: string
-    name: string
-    order: number
-    question: QuestionCreateNestedOneWithoutOptionsInput
-  }
-
-  export type OptionUncheckedCreateWithoutUserInput = {
-    id?: string
-    name: string
-    order: number
-    questionId: string
-  }
-
-  export type OptionCreateOrConnectWithoutUserInput = {
-    where: OptionWhereUniqueInput
-    create: XOR<OptionCreateWithoutUserInput, OptionUncheckedCreateWithoutUserInput>
-  }
-
-  export type OptionCreateManyUserInputEnvelope = {
-    data: OptionCreateManyUserInput | OptionCreateManyUserInput[]
-  }
-
   export type SessionUpsertWithWhereUniqueWithoutUserInput = {
     where: SessionWhereUniqueInput
     update: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
@@ -12912,38 +12363,6 @@ export namespace Prisma {
     createdById?: StringFilter<"Form"> | string
   }
 
-  export type QuestionUpsertWithWhereUniqueWithoutUserInput = {
-    where: QuestionWhereUniqueInput
-    update: XOR<QuestionUpdateWithoutUserInput, QuestionUncheckedUpdateWithoutUserInput>
-    create: XOR<QuestionCreateWithoutUserInput, QuestionUncheckedCreateWithoutUserInput>
-  }
-
-  export type QuestionUpdateWithWhereUniqueWithoutUserInput = {
-    where: QuestionWhereUniqueInput
-    data: XOR<QuestionUpdateWithoutUserInput, QuestionUncheckedUpdateWithoutUserInput>
-  }
-
-  export type QuestionUpdateManyWithWhereWithoutUserInput = {
-    where: QuestionScalarWhereInput
-    data: XOR<QuestionUpdateManyMutationInput, QuestionUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type OptionUpsertWithWhereUniqueWithoutUserInput = {
-    where: OptionWhereUniqueInput
-    update: XOR<OptionUpdateWithoutUserInput, OptionUncheckedUpdateWithoutUserInput>
-    create: XOR<OptionCreateWithoutUserInput, OptionUncheckedCreateWithoutUserInput>
-  }
-
-  export type OptionUpdateWithWhereUniqueWithoutUserInput = {
-    where: OptionWhereUniqueInput
-    data: XOR<OptionUpdateWithoutUserInput, OptionUncheckedUpdateWithoutUserInput>
-  }
-
-  export type OptionUpdateManyWithWhereWithoutUserInput = {
-    where: OptionScalarWhereInput
-    data: XOR<OptionUpdateManyMutationInput, OptionUncheckedUpdateManyWithoutUserInput>
-  }
-
   export type UserCreateWithoutSessionsInput = {
     id: string
     name: string
@@ -12954,8 +12373,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
     forms?: FormCreateNestedManyWithoutCreatedByInput
-    questions?: QuestionCreateNestedManyWithoutUserInput
-    options?: OptionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
@@ -12968,8 +12385,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     forms?: FormUncheckedCreateNestedManyWithoutCreatedByInput
-    questions?: QuestionUncheckedCreateNestedManyWithoutUserInput
-    options?: OptionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -12998,8 +12413,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
     forms?: FormUpdateManyWithoutCreatedByNestedInput
-    questions?: QuestionUpdateManyWithoutUserNestedInput
-    options?: OptionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -13012,8 +12425,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     forms?: FormUncheckedUpdateManyWithoutCreatedByNestedInput
-    questions?: QuestionUncheckedUpdateManyWithoutUserNestedInput
-    options?: OptionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutAccountsInput = {
@@ -13026,8 +12437,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
     forms?: FormCreateNestedManyWithoutCreatedByInput
-    questions?: QuestionCreateNestedManyWithoutUserInput
-    options?: OptionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
@@ -13040,8 +12449,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     forms?: FormUncheckedCreateNestedManyWithoutCreatedByInput
-    questions?: QuestionUncheckedCreateNestedManyWithoutUserInput
-    options?: OptionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAccountsInput = {
@@ -13070,8 +12477,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
     forms?: FormUpdateManyWithoutCreatedByNestedInput
-    questions?: QuestionUpdateManyWithoutUserNestedInput
-    options?: OptionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -13084,8 +12489,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     forms?: FormUncheckedUpdateManyWithoutCreatedByNestedInput
-    questions?: QuestionUncheckedUpdateManyWithoutUserNestedInput
-    options?: OptionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type QuestionCreateManyFormInput = {
@@ -13099,7 +12502,6 @@ export namespace Prisma {
     shuffleOptionOrder?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
-    userId?: string | null
   }
 
   export type QuestionUpdateWithoutFormInput = {
@@ -13114,7 +12516,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     options?: OptionUpdateManyWithoutQuestionNestedInput
-    user?: UserUpdateOneWithoutQuestionsNestedInput
   }
 
   export type QuestionUncheckedUpdateWithoutFormInput = {
@@ -13128,7 +12529,6 @@ export namespace Prisma {
     shuffleOptionOrder?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    userId?: NullableStringFieldUpdateOperationsInput | string | null
     options?: OptionUncheckedUpdateManyWithoutQuestionNestedInput
   }
 
@@ -13143,35 +12543,30 @@ export namespace Prisma {
     shuffleOptionOrder?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    userId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type OptionCreateManyQuestionInput = {
     id?: string
     name: string
     order: number
-    userId?: string | null
   }
 
   export type OptionUpdateWithoutQuestionInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     order?: IntFieldUpdateOperationsInput | number
-    user?: UserUpdateOneWithoutOptionsNestedInput
   }
 
   export type OptionUncheckedUpdateWithoutQuestionInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     order?: IntFieldUpdateOperationsInput | number
-    userId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type OptionUncheckedUpdateManyWithoutQuestionInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     order?: IntFieldUpdateOperationsInput | number
-    userId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SessionCreateManyUserInput = {
@@ -13216,27 +12611,6 @@ export namespace Prisma {
     showLinkFormAnotherResponse?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
-  }
-
-  export type QuestionCreateManyUserInput = {
-    id?: string
-    title?: string | null
-    description?: string | null
-    inlineImage?: string | null
-    type?: string
-    order: number
-    required?: boolean
-    shuffleOptionOrder?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    formId: string
-  }
-
-  export type OptionCreateManyUserInput = {
-    id?: string
-    name: string
-    order: number
-    questionId: string
   }
 
   export type SessionUpdateWithoutUserInput = {
@@ -13371,71 +12745,6 @@ export namespace Prisma {
     showLinkFormAnotherResponse?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type QuestionUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    inlineImage?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: StringFieldUpdateOperationsInput | string
-    order?: IntFieldUpdateOperationsInput | number
-    required?: BoolFieldUpdateOperationsInput | boolean
-    shuffleOptionOrder?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    form?: FormUpdateOneRequiredWithoutQuestionsNestedInput
-    options?: OptionUpdateManyWithoutQuestionNestedInput
-  }
-
-  export type QuestionUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    inlineImage?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: StringFieldUpdateOperationsInput | string
-    order?: IntFieldUpdateOperationsInput | number
-    required?: BoolFieldUpdateOperationsInput | boolean
-    shuffleOptionOrder?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    formId?: StringFieldUpdateOperationsInput | string
-    options?: OptionUncheckedUpdateManyWithoutQuestionNestedInput
-  }
-
-  export type QuestionUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    inlineImage?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: StringFieldUpdateOperationsInput | string
-    order?: IntFieldUpdateOperationsInput | number
-    required?: BoolFieldUpdateOperationsInput | boolean
-    shuffleOptionOrder?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    formId?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type OptionUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    order?: IntFieldUpdateOperationsInput | number
-    question?: QuestionUpdateOneRequiredWithoutOptionsNestedInput
-  }
-
-  export type OptionUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    order?: IntFieldUpdateOperationsInput | number
-    questionId?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type OptionUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    order?: IntFieldUpdateOperationsInput | number
-    questionId?: StringFieldUpdateOperationsInput | string
   }
 
 

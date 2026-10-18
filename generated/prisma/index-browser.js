@@ -149,16 +149,14 @@ exports.Prisma.QuestionScalarFieldEnum = {
   shuffleOptionOrder: 'shuffleOptionOrder',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  formId: 'formId',
-  userId: 'userId'
+  formId: 'formId'
 };
 
 exports.Prisma.OptionScalarFieldEnum = {
   id: 'id',
   name: 'name',
   order: 'order',
-  questionId: 'questionId',
-  userId: 'userId'
+  questionId: 'questionId'
 };
 
 exports.Prisma.UserScalarFieldEnum = {

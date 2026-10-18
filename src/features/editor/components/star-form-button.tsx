@@ -3,11 +3,11 @@
 import React from "react";
 import { StarIcon } from "lucide-react";
 import { useParams } from "next/navigation";
+import { cn } from "cn";
 
 import { Button } from "@/components/ui/button";
 import { api } from "@/trpc/react";
 import { Spinner } from "@/components/ui/spinner";
-import { cn } from "cn";
 
 function StarFormButton() {
   const params = useParams();

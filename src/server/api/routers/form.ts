@@ -104,7 +104,9 @@ export const formRouter = createTRPCRouter({
         shuffleQuestionOrder: z.coerce.boolean().optional(),
         confirmationMessage: z.string().optional(),
         showLinkFormAnotherResponse: z.coerce.boolean().optional(),
-      }).partial(),
+      }).partial().required({
+        id: true
+      }),
     )
     .mutation(async ({ ctx, input }) => {
       const {id, ...partialInput} = input;

@@ -2,6 +2,7 @@ import React from "react";
 
 import FormTitleCard from "@/features/editor/components/form-title-card";
 import EditorActions from "@/features/editor/components/editor-actions";
+import FormFields from "@/features/editor/components/form-fields";
 
 function EditFormPage() {
   return (
@@ -9,6 +10,8 @@ function EditFormPage() {
       <div className="flex flex-col items-center gap-3 w-full">
         {/* Title card */}
         <FormTitleCard />
+        {/* Form fields */}
+        <FormFields />
       </div>
       {/* Editor actions */}
       <EditorActions />

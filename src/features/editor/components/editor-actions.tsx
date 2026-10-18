@@ -1,28 +1,44 @@
 "use client";
 
 import React from "react";
-
-import { Card, CardContent } from "@/components/ui/card";
 import {
   CaseSensitiveIcon,
   CirclePlusIcon,
   ImageIcon,
   StretchHorizontalIcon,
 } from "lucide-react";
+import { useParams } from "next/navigation";
+
 import { Button } from "@/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { api } from "@/trpc/react";
+import { Spinner } from "@/components/ui/spinner";
 
 function EditorActions() {
+  const params = useParams();
+  const utils = api.useUtils();
+
+  const addQuestionApi = api.question.addQuestion.useMutation({
+    onSuccess: async () => {
+      await utils.question.getAll.invalidate({
+        form_id: params.form as string,
+      });
+    },
+  });
+
   const actions = [
     {
       label: "Add question",
       Icon: CirclePlusIcon,
-      action: () => {
-        return;
+      disabled: addQuestionApi.isPending,
+      action: async () => {
+        await addQuestionApi.mutateAsync({
+          form_id: params.form as string,
+        });
       },
     },
     {
@@ -49,24 +65,25 @@ function EditorActions() {
   ];
 
   return (
-    <div className="bg-background shadow border flex flex-col rounded-md p-1.5 h-fit sticky top-28">
-        {actions.map((value) => (
-          <Tooltip key={value.label}>
-            <TooltipTrigger
-              render={
-                <Button
-                  variant="ghost"
-                  size="icon-lg"
-                  key={value.label}
-                  onClick={value.action}
-                >
-                  <value.Icon />
-                </Button>
-              }
-            />
-            <TooltipContent side="right">{value.label}</TooltipContent>
-          </Tooltip>
-        ))}
+    <div className="bg-background sticky top-28 flex h-fit flex-col rounded-md border p-1.5 shadow">
+      {actions.map((value) => (
+        <Tooltip key={value.label}>
+          <TooltipTrigger
+            render={
+              <Button
+                disabled={value.disabled}
+                variant="ghost"
+                size="icon-lg"
+                key={value.label}
+                onClick={value.action}
+              >
+                {value.disabled ? <Spinner /> : <value.Icon />}
+              </Button>
+            }
+          />
+          <TooltipContent side="right">{value.label}</TooltipContent>
+        </Tooltip>
+      ))}
     </div>
   );
 }
