@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
-    EllipsisVerticalIcon,
+  EllipsisVerticalIcon,
   EyeIcon,
   Link2Icon,
   PaletteIcon,
@@ -11,12 +11,13 @@ import {
   UserPlusIcon,
 } from "lucide-react";
 
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import UserButton from "@/features/auth/components/user-button";
 import RenameForm from "./rename-form";
+import EditorNavigation from "./editor-navigation";
 
 function EditorHeader() {
+
   const formActions = [
     {
       Icon: PaletteIcon,
@@ -69,41 +70,14 @@ function EditorHeader() {
               </Button>
             ))}
             <Button>Publish</Button>
-            <Button
-              variant="ghost"
-              size="icon-lg"
-              className="rounded-full"
-            >
+            <Button variant="ghost" size="icon-lg" className="rounded-full">
               <EllipsisVerticalIcon />
             </Button>
             <UserButton />
           </div>
         </div>
         {/* bottom layer */}
-        <div className="flex items-center justify-center">
-          <Tabs className="font-heading">
-            <TabsList variant="line">
-              <TabsTrigger
-                className="data-active:text-primary after:bg-primary hover:text-primary"
-                value="edit"
-              >
-                Questions
-              </TabsTrigger>
-              <TabsTrigger
-                className="data-active:text-primary after:bg-primary hover:text-primary"
-                value="responses"
-              >
-                Responses
-              </TabsTrigger>
-              <TabsTrigger
-                className="data-active:text-primary after:bg-primary hover:text-primary"
-                value="settings"
-              >
-                Settings
-              </TabsTrigger>
-            </TabsList>
-          </Tabs>
-        </div>
+        <EditorNavigation />
       </nav>
     </header>
   );

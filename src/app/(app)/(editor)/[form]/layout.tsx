@@ -7,26 +7,27 @@ import { api } from "@/trpc/server";
 interface EditorLayoutProps {
   children: React.ReactNode;
   params: Promise<{
-    form: string
-  }>
+    form: string;
+  }>;
 }
 
 async function EditorLayout({ children, params }: EditorLayoutProps) {
-
-  const {form} = await params;
+  const { form } = await params;
 
   const formApi = await api.form.getOne({
-    id: form
-  })
+    id: form,
+  });
 
-  if(!formApi){
-    return notFound()
+  if (!formApi) {
+    return notFound();
   }
 
   return (
     <div className="relative flex min-h-screen flex-col">
       <EditorHeader />
-      <main className="flex-1 bg-accent">{children}</main>
+      <main className="bg-accent flex-1">
+        <div className="container mx-auto px-3 w-full md:max-w-3xl">{children}</div>
+      </main>
     </div>
   );
 }

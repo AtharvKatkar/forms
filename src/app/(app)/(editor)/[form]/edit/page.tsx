@@ -13,7 +13,7 @@ function EditFormPage() {
   });
 
   return (
-    <div className="container mx-auto px-3">
+    <div>
       <pre>
         <code>{JSON.stringify(formApi.data, null, 2)}</code>
       </pre>
