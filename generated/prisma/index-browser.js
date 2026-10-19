@@ -122,14 +122,13 @@ exports.Prisma.FormScalarFieldEnum = {
   id: 'id',
   name: 'name',
   description: 'description',
-  stared: 'stared',
+  starred: 'starred',
   published: 'published',
   publishedAt: 'publishedAt',
   requireAuth: 'requireAuth',
   sendResponseEmail: 'sendResponseEmail',
   allowResponseEditing: 'allowResponseEditing',
   limitOneResponse: 'limitOneResponse',
-  allQuestionsRequired: 'allQuestionsRequired',
   showProgressBar: 'showProgressBar',
   shuffleQuestionOrder: 'shuffleQuestionOrder',
   confirmationMessage: 'confirmationMessage',
@@ -137,6 +136,27 @@ exports.Prisma.FormScalarFieldEnum = {
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   createdById: 'createdById'
+};
+
+exports.Prisma.QuestionScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  description: 'description',
+  inlineImage: 'inlineImage',
+  type: 'type',
+  order: 'order',
+  required: 'required',
+  shuffleOptionOrder: 'shuffleOptionOrder',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  formId: 'formId'
+};
+
+exports.Prisma.OptionScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  order: 'order',
+  questionId: 'questionId'
 };
 
 exports.Prisma.UserScalarFieldEnum = {
@@ -198,6 +218,8 @@ exports.Prisma.NullsOrder = {
 
 exports.Prisma.ModelName = {
   Form: 'Form',
+  Question: 'Question',
+  Option: 'Option',
   User: 'User',
   Session: 'Session',
   Account: 'Account',
