@@ -18,7 +18,6 @@ import EditorNavigation from "./editor-navigation";
 import StarFormButton from "./star-form-button";
 
 function EditorHeader() {
-
   const formActions = [
     {
       Icon: PaletteIcon,

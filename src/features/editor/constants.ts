@@ -13,6 +13,20 @@ import {
 
 import { type SUPPORTED_FIELDS } from "@/lib/constants";
 
+/**
+ * Field types whose answer is picked from a list of `Option` rows. Only these render an option
+ * list, so `shuffleOptionOrder` is meaningless on anything else and stays hidden.
+ */
+export const OPTION_BASED_FIELDS = [
+  "MULTIPLE_CHOICE",
+  "CHECKBOXES",
+  "DROPDOWN",
+] as const satisfies readonly SUPPORTED_FIELDS[];
+
+export function usesOptions(type: string): boolean {
+  return (OPTION_BASED_FIELDS as readonly string[]).includes(type);
+}
+
 export const SUPPORTED_FIELD_SELECT_ITEMS: {
   label: string;
   Icon: LucideIcon;

@@ -150,6 +150,31 @@ function getOptionNeighbor(
   });
 }
 
+/**
+ * `addOption` / `updateOption` / `deleteOption` are addressed by id, so the owning form has to
+ * be resolved from the row itself. Without this an authenticated caller could pass any option
+ * id and write to a form they do not own, so every option scope is resolved through
+ * `question.form.createdById`.
+ */
+async function requireOwnedOption(db: Db, userId: string, id: string) {
+  const option = await db.option.findFirst({
+    where: {
+      id,
+      question: { form: { createdById: userId } },
+    },
+    select: { id: true, questionId: true },
+  });
+
+  if (!option) {
+    throw new TRPCError({
+      code: "UNAUTHORIZED",
+      message: "You are not authorized to access this option",
+    });
+  }
+
+  return option;
+}
+
 export const questionRouter = createTRPCRouter({
   getAll: protectedProcedure
     .input(
@@ -251,23 +276,29 @@ export const questionRouter = createTRPCRouter({
     .mutation(async ({ ctx, input }) => {
       const { form_id, question_id, ...partialInput } = input;
 
-      const isOwner = await ctx.db.form.findUnique({
+      // Scoped by `formId` as well as the owner: authorizing `form_id` alone would let a caller
+      // who owns any form pair it with a `question_id` belonging to somebody else's form.
+      const question = await ctx.db.question.findFirst({
         where: {
-          id: form_id,
-          createdById: ctx.session.user.id,
+          id: question_id,
+          formId: form_id,
+          form: { createdById: ctx.session.user.id },
+        },
+        select: {
+          id: true,
         },
       });
 
-      if (!isOwner?.id) {
+      if (!question?.id) {
         throw new TRPCError({
           code: "UNAUTHORIZED",
-          message: "You are not authorized to access this form",
+          message: "You are not authorized to access this question",
         });
       }
 
       const res = await ctx.db.question.update({
         where: {
-          id: question_id,
+          id: question.id,
         },
         data: {
           ...partialInput,
@@ -285,29 +316,35 @@ export const questionRouter = createTRPCRouter({
       }),
     )
     .mutation(async ({ ctx, input }) => {
-      const isOwner = await ctx.db.form.findUnique({
-        where: {
-          id: input.form_id,
-          createdById: ctx.session.user.id,
-        },
-      });
-
-      if (!isOwner?.id) {
-        throw new TRPCError({
-          code: "UNAUTHORIZED",
-          message: "You are not authorized to access this form",
-        });
-      }
-
-      // The deleted question leaves a hole in the sequence, so the remaining ones are pulled
-      // up to keep orders gapless.
+      // The ownership check runs inside the transaction so a question cannot be swapped for
+      // another form's between the check and the delete.
       const res = await ctx.db.$transaction(async (tx) => {
-        const deleted = await tx.question.delete({
+        const question = await tx.question.findFirst({
           where: {
             id: input.question_id,
+            formId: input.form_id,
+            form: { createdById: ctx.session.user.id },
+          },
+          select: {
+            id: true,
           },
         });
 
+        if (!question?.id) {
+          throw new TRPCError({
+            code: "UNAUTHORIZED",
+            message: "You are not authorized to access this question",
+          });
+        }
+
+        const deleted = await tx.question.delete({
+          where: {
+            id: question.id,
+          },
+        });
+
+        // The deleted question leaves a hole in the sequence, so the remaining ones are pulled
+        // up to keep orders gapless.
         await resequenceQuestions(tx, input.form_id);
 
         return deleted;
@@ -391,19 +428,40 @@ export const questionRouter = createTRPCRouter({
       }),
     )
     .mutation(async ({ ctx, input }) => {
-      const order = await nextOptionOrder(ctx.db, input.question_id);
+      // Read, order and create all happen in one transaction so the ownership check cannot be
+      // raced against the option being moved to another form.
+      const res = await ctx.db.$transaction(async (tx) => {
+        const question = await tx.question.findFirst({
+          where: {
+            id: input.question_id,
+            form: { createdById: ctx.session.user.id },
+          },
+          select: {
+            id: true,
+          },
+        });
 
-      return await ctx.db.option.create({
-        data: {
-          name: `New option`,
-          order,
-          question: {
-            connect: {
-              id: input.question_id,
+        if (!question?.id) {
+          throw new TRPCError({
+            code: "UNAUTHORIZED",
+            message: "You are not authorized to access this question",
+          });
+        }
+
+        return await tx.option.create({
+          data: {
+            name: `New option`,
+            order: await nextOptionOrder(tx, input.question_id),
+            question: {
+              connect: {
+                id: input.question_id,
+              },
             },
           },
-        },
+        });
       });
+
+      return res;
     }),
 
   moveOption: protectedProcedure
@@ -486,9 +544,11 @@ export const questionRouter = createTRPCRouter({
     .mutation(async ({ ctx, input }) => {
       const { id, ...partialInput } = input;
 
+      const option = await requireOwnedOption(ctx.db, ctx.session.user.id, id);
+
       const res = await ctx.db.option.update({
         where: {
-          id,
+          id: option.id,
         },
         data: partialInput,
       });
@@ -505,10 +565,12 @@ export const questionRouter = createTRPCRouter({
     .mutation(async ({ ctx, input }) => {
       const { id } = input;
 
+      const option = await requireOwnedOption(ctx.db, ctx.session.user.id, id);
+
       const res = await ctx.db.$transaction(async (tx) => {
         const deleted = await tx.option.delete({
           where: {
-            id,
+            id: option.id,
           },
         });
 

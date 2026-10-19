@@ -88,32 +88,34 @@ export const formRouter = createTRPCRouter({
 
   updateForm: protectedProcedure
     .input(
-      z.object({
-        id: z.string(),
-        name: z.string(),
-        description: z.string().optional(),
-        starred: z.coerce.boolean().optional(),
-        published: z.coerce.boolean().optional(),
-        publishedAt: z.coerce.date().optional(),
-        requireAuth: z.coerce.boolean().optional(),
-        sendResponseEmail: z.coerce.boolean().optional(),
-        allowResponseEditing: z.coerce.boolean().optional(),
-        limitOneResponse: z.coerce.boolean().optional(),
-        allQuestionsRequired: z.coerce.boolean().optional(),
-        showProgressBar: z.coerce.boolean().optional(),
-        shuffleQuestionOrder: z.coerce.boolean().optional(),
-        confirmationMessage: z.string().optional(),
-        showLinkFormAnotherResponse: z.coerce.boolean().optional(),
-      }).partial().required({
-        id: true
-      }),
+      z
+        .object({
+          id: z.string(),
+          name: z.string(),
+          description: z.string().optional(),
+          starred: z.coerce.boolean().optional(),
+          published: z.coerce.boolean().optional(),
+          publishedAt: z.coerce.date().optional(),
+          requireAuth: z.coerce.boolean().optional(),
+          sendResponseEmail: z.coerce.boolean().optional(),
+          allowResponseEditing: z.coerce.boolean().optional(),
+          limitOneResponse: z.coerce.boolean().optional(),
+          showProgressBar: z.coerce.boolean().optional(),
+          shuffleQuestionOrder: z.coerce.boolean().optional(),
+          confirmationMessage: z.string().optional(),
+          showLinkFormAnotherResponse: z.coerce.boolean().optional(),
+        })
+        .partial()
+        .required({
+          id: true,
+        }),
     )
     .mutation(async ({ ctx, input }) => {
-      const {id, ...partialInput} = input;
+      const { id, ...partialInput } = input;
 
       const res = await ctx.db.form.update({
         data: {
-          ...partialInput
+          ...partialInput,
         },
         where: {
           id,

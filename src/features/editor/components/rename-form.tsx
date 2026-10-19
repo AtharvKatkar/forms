@@ -1,13 +1,11 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "next/navigation";
 
 import { api } from "@/trpc/react";
 
 function RenameForm() {
-  const [name, setName] = useState("Untitled form");
-
   const params = useParams();
   const utils = api.useUtils();
 
@@ -23,25 +21,23 @@ function RenameForm() {
     },
   });
 
-  useEffect(() => {
-    if(formApi.data?.name){
-      setName(formApi.data?.name)
-    }
-  }, [formApi.data?.name])
+  // Uncontrolled: `defaultValue` alone seeds the field once the form resolves, and `size` keeps
+  // the input growing with the name instead of clipping it or leaving a gap. A controlled
+  // `value` would fight the server value while a rename is in flight.
+  const name = formApi.data?.name ?? "Untitled form";
 
   return (
     <input
+      key={name}
       disabled={formApi.isPending || renameApi.isPending}
-      defaultValue={formApi.data?.name}
-      value={name}
-      onChange={(e) => setName(e.target.value)}
+      defaultValue={name}
       placeholder="Untitled form"
       size={Math.max(name.length, "Untitled form".length, 1)}
       className="focus:border-b-primary font-heading border-b-2 border-b-transparent text-lg focus:outline-0"
       onBlur={async (e) => {
-        const value = e.target.value;
+        const value = e.target.value.trim();
 
-        if (!value || value.length === 0) {
+        if (!value || value === name) {
           return;
         }
 

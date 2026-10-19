@@ -43,7 +43,13 @@ function StarFormButton() {
       {formApi.isPending || updateApi.isPending ? (
         <Spinner />
       ) : (
-        <StarIcon className={cn(formApi.data?.starred  ? "text-yellow-500 fill-yellow-500" : "fill-transparent text-foreground")} />
+        <StarIcon
+          className={cn(
+            formApi.data?.starred
+              ? "fill-yellow-500 text-yellow-500"
+              : "text-foreground fill-transparent",
+          )}
+        />
       )}
     </Button>
   );

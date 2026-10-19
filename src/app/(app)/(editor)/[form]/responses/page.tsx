@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function ResponsesPage() {
-  return (
-    <div>ResponsesPage</div>
-  )
+  return <div>ResponsesPage</div>;
 }
 
-export default ResponsesPage
+export default ResponsesPage;

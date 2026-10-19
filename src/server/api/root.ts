@@ -9,7 +9,7 @@ import { createCallerFactory, createTRPCRouter } from "@/server/api/trpc";
  */
 export const appRouter = createTRPCRouter({
   form: formRouter,
-  question: questionRouter
+  question: questionRouter,
 });
 
 // export type definition of API

@@ -13,8 +13,11 @@ import {
   ItemTitle,
 } from "@/components/ui/item";
 import { Switch } from "@/components/ui/switch";
+import { Textarea } from "@/components/ui/textarea";
 import { api } from "@/trpc/react";
 import { Separator } from "@/components/ui/separator";
+
+const DEFAULT_CONFIRMATION_MESSAGE = "Your response has been recorded";
 
 function FormSettings() {
   const params = useParams();
@@ -57,7 +60,6 @@ function FormSettings() {
                       {!formApi.isPending && (
                         <Switch
                           checked={formApi.data?.requireAuth}
-                          defaultChecked={formApi.data?.requireAuth}
                           disabled={formApi.isPending}
                           onCheckedChange={async (value) => {
                             await updateFormApi.mutateAsync({
@@ -85,7 +87,6 @@ function FormSettings() {
                       {!formApi.isPending && (
                         <Switch
                           checked={formApi.data?.sendResponseEmail}
-                          defaultChecked={formApi.data?.sendResponseEmail}
                           disabled={
                             formApi.isPending || !formApi.data?.requireAuth
                           }
@@ -110,7 +111,6 @@ function FormSettings() {
                       {!formApi.isPending && (
                         <Switch
                           checked={formApi.data?.allowResponseEditing}
-                          defaultChecked={formApi.data?.allowResponseEditing}
                           disabled={formApi.isPending}
                           onCheckedChange={async (value) => {
                             await updateFormApi.mutateAsync({
@@ -133,7 +133,6 @@ function FormSettings() {
                       {!formApi.isPending && (
                         <Switch
                           checked={formApi.data?.limitOneResponse}
-                          defaultChecked={formApi.data?.limitOneResponse}
                           disabled={
                             formApi.isPending || !formApi.data?.requireAuth
                           }
@@ -169,7 +168,6 @@ function FormSettings() {
                       {!formApi.isPending && (
                         <Switch
                           checked={formApi.data?.showProgressBar}
-                          defaultChecked={formApi.data?.showProgressBar}
                           disabled={formApi.isPending}
                           onCheckedChange={async (value) => {
                             await updateFormApi.mutateAsync({
@@ -184,12 +182,14 @@ function FormSettings() {
                   <Item size="sm">
                     <ItemContent>
                       <ItemTitle>Shuffle question order</ItemTitle>
+                      <ItemDescription>
+                        Present questions in a random order for every responder
+                      </ItemDescription>
                     </ItemContent>
                     <ItemActions>
                       {!formApi.isPending && (
                         <Switch
                           checked={formApi.data?.shuffleQuestionOrder}
-                          defaultChecked={formApi.data?.shuffleQuestionOrder}
                           disabled={formApi.isPending}
                           onCheckedChange={async (value) => {
                             await updateFormApi.mutateAsync({
@@ -200,6 +200,81 @@ function FormSettings() {
                         />
                       )}
                     </ItemActions>
+                  </Item>
+                  <Item size="sm">
+                    <ItemContent>
+                      <ItemTitle>Allow another response</ItemTitle>
+                      <ItemDescription>
+                        Show a link back to this form on the confirmation screen
+                        so responders can submit again
+                      </ItemDescription>
+                    </ItemContent>
+                    <ItemActions>
+                      {!formApi.isPending && (
+                        <Switch
+                          checked={formApi.data?.showLinkFormAnotherResponse}
+                          disabled={formApi.isPending}
+                          onCheckedChange={async (value) => {
+                            await updateFormApi.mutateAsync({
+                              id: String(params.form),
+                              showLinkFormAnotherResponse: value,
+                            });
+                          }}
+                        />
+                      )}
+                    </ItemActions>
+                  </Item>
+                </ItemGroup>
+              </ItemContent>
+            </Item>
+          </ItemGroup>
+          <Separator />
+          {/* Confirmation section */}
+          <ItemGroup>
+            <Item>
+              <ItemContent>
+                <ItemTitle>Confirmation</ItemTitle>
+                <ItemDescription>
+                  What a responder sees after submitting a response
+                </ItemDescription>
+                <ItemGroup>
+                  <Item size="sm" className="items-start">
+                    <ItemContent>
+                      <ItemTitle>Confirmation message</ItemTitle>
+                      <ItemDescription>
+                        Shown on the screen a responder lands on after
+                        submitting
+                      </ItemDescription>
+                      {!formApi.isPending && (
+                        <Textarea
+                          rows={3}
+                          className="resize-none"
+                          defaultValue={
+                            formApi.data?.confirmationMessage ??
+                            DEFAULT_CONFIRMATION_MESSAGE
+                          }
+                          placeholder={DEFAULT_CONFIRMATION_MESSAGE}
+                          disabled={updateFormApi.isPending}
+                          onBlur={(e) => {
+                            const confirmationMessage = e.target.value.trim();
+
+                            if (
+                              !confirmationMessage ||
+                              confirmationMessage ===
+                                (formApi.data?.confirmationMessage ??
+                                  DEFAULT_CONFIRMATION_MESSAGE)
+                            ) {
+                              return;
+                            }
+
+                            void updateFormApi.mutateAsync({
+                              id: String(params.form),
+                              confirmationMessage,
+                            });
+                          }}
+                        />
+                      )}
+                    </ItemContent>
                   </Item>
                 </ItemGroup>
               </ItemContent>

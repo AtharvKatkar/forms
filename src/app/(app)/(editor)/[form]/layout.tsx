@@ -26,7 +26,9 @@ async function EditorLayout({ children, params }: EditorLayoutProps) {
     <div className="relative flex min-h-screen flex-col">
       <EditorHeader />
       <main className="bg-accent flex-1">
-        <div className="container mx-auto px-3 w-full md:max-w-3xl">{children}</div>
+        <div className="container mx-auto w-full px-3 md:max-w-3xl">
+          {children}
+        </div>
       </main>
     </div>
   );

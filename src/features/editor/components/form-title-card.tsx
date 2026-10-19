@@ -23,13 +23,13 @@ function FormTitleCard() {
   });
 
   return (
-    <Card className="w-full border-t-8 border-t-primary">
+    <Card className="border-t-primary w-full border-t-8">
       <CardContent className="space-y-1.5">
         <input
           disabled={updateFormApi.isPending}
           placeholder="Untitled form"
           defaultValue={formApi.data?.name}
-          className="focus:border-b-primary border-b text-4xl transition focus:outline-0 focus:border-b-2"
+          className="focus:border-b-primary border-b text-4xl transition focus:border-b-2 focus:outline-0"
           onBlur={async (e) => {
             const value = e.target.value;
 
@@ -45,7 +45,7 @@ function FormTitleCard() {
           disabled={updateFormApi.isPending}
           placeholder="Form description"
           defaultValue={formApi.data?.description ?? ""}
-          className="focus:border-b-primary border-b transition focus:outline-0 focus:border-b-2"
+          className="focus:border-b-primary border-b transition focus:border-b-2 focus:outline-0"
           onBlur={async (e) => {
             const value = e.target.value;
 

@@ -26,6 +26,7 @@ import {
 
 import { type SUPPORTED_FIELDS } from "@/lib/constants";
 import { api } from "@/trpc/react";
+import { usesOptions } from "../constants";
 import FieldTypeChanger from "./field-type-changer";
 
 interface QuestionEditorShellProps extends Question {
@@ -61,6 +62,8 @@ function QuestionEditorShell(props: QuestionEditorShellProps) {
 
   const isPending =
     updateApi.isPending || deleteApi.isPending || moveQuestionApi.isPending;
+
+  const usesOptionList = usesOptions(props.type);
 
   const questions = utils.question.getAll.getData({ form_id: props.formId });
   const isFirstQuestion = questions?.at(0)?.id === props.id;
@@ -160,7 +163,6 @@ function QuestionEditorShell(props: QuestionEditorShellProps) {
         <Label>
           Required
           <Switch
-            defaultChecked={props.required}
             checked={props.required}
             disabled={isPending}
             onCheckedChange={async () => {
@@ -172,6 +174,22 @@ function QuestionEditorShell(props: QuestionEditorShellProps) {
             }}
           />
         </Label>
+        {usesOptionList && (
+          <Label>
+            Shuffle options
+            <Switch
+              checked={props.shuffleOptionOrder}
+              disabled={isPending}
+              onCheckedChange={async () => {
+                await updateApi.mutateAsync({
+                  form_id: props.formId,
+                  question_id: props.id,
+                  shuffleOptionOrder: !props.shuffleOptionOrder,
+                });
+              }}
+            />
+          </Label>
+        )}
         <DropdownMenu>
           <DropdownMenuTrigger
             className={buttonVariants({ variant: "ghost", size: "icon-lg" })}
