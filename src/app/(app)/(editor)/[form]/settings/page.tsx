@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
-function ResponsesPage() {
-  return (
-    <div>ResponsesPage</div>
-  )
+import FormSettings from "@/features/editor/components/form-settings";
+
+function SettingsPage() {
+  return <FormSettings />
 }
 
-export default ResponsesPage
+export default SettingsPage;
